@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AuthView extends StatelessWidget {
   const AuthView({super.key});
@@ -8,12 +9,13 @@ class AuthView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Row(
         children: [
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xFFF3B664)
+                color: Color(0xFFFFE3BB)
               ),
               child: Padding(
                 padding: const EdgeInsets.all(32),
@@ -22,20 +24,33 @@ class AuthView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('ChatAndrea',
-                    style: TextStyle(
-                      color: Color(0xFFC95618),
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold
+                    style: GoogleFonts.sora(
+                      color: Color(0xFFFFAD33),
+                      fontSize: 21,
+                      fontWeight: FontWeight.w500
                     ),
                     ),
-                    Text('Best Chat',
-                    style: TextStyle(
-                      color: Color(0xFFC95618),
-                      fontSize: 48,
-                      fontWeight: FontWeight.bold
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Best Chat',
+                        style: GoogleFonts.sora(
+                          color: Color(0xFFFFAD33),
+                          fontSize: 56,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                        Text('to discover what is new',
+                        style: GoogleFonts.sora(
+                          color: Color(0xFFFFAD33),
+                          fontSize: 36,
+                          fontWeight: FontWeight.w500
+                        ))
+                      ],
                     ),
-                    ),
-                    SizedBox.shrink() //è un box vuoto
+                    SizedBox(
+                      height: 50
+                    ) //è un box vuoto
                   ],
                 ),
               ),
@@ -48,9 +63,8 @@ class AuthView extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(32),
               child: Center(
-                child: SizedBox(
-                  
-                  
+                child: Container(
+                  constraints: BoxConstraints(maxWidth: 500),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -58,28 +72,95 @@ class AuthView extends StatelessWidget {
                       SizedBox.shrink(),
                       Column(
                         children: [
-                          Text('Get started'),
-                          Container(
-                            height: 56,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF8963BA),
-                              borderRadius: BorderRadius.circular(4)
-                            ),
-                            child: Center(
-                              child: Text('Login'),
-                            ),
+                          Text('Get started',
+                          style: GoogleFonts.sora(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32
+                          ),),
+                          SizedBox(height: 10,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  height: 48,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xFF1F57FF),
+                                    borderRadius: BorderRadius.circular(8)
+                                  ),
+                                  child: Center(
+                                    child: Text('Log in',
+                                    style: GoogleFonts.sora(
+                                      color: Color(0xFFFFFFFF),
+                                      fontSize: 16
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 16,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  height: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    border: Border.all(
+                                    color: Color(0xFF1F57FF), // Colore del bordo
+                                    width: 2, // Spessore del bordo
+                                  ),
+                                  ),
+                                  child: Center(
+                                    child: Text('Sign up',
+                                    style: GoogleFonts.sora(
+                                      color: Color(0xFF1F57FF),
+                                      fontSize: 16
+                                    ),),
+                                  ),
+                                ),
+                              ),
+                            ],
                           )
                         ],
                       ),
                       Column(
                         children: [
-                          Text('Qualcosa'),
+                          Row(
+                            children: [
+                              //Image(image: image),
+                              Text('OpenAI',
+                              style: GoogleFonts.sora(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w300,
+                                color: Color(0xFFB4B4B3)
+                              ),),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text('data'),
-                              Container(),
-                              Text('data')
+                              Text('Terms of use',
+                              style: GoogleFonts.sora(
+                                      color: Color(0xFFB4B4B3),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300
+                                    )),
+                              SizedBox(width: 10,),
+                              Container(
+                                width: 1,
+                                height: 16,
+                                color: Color(0xFFB4B4B3),
+                              ),
+                              SizedBox(width: 10,),
+                              Text('Privacy Policy',
+                              style: GoogleFonts.sora(
+                                      color: Color(0xFFB4B4B3),
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300
+                                    ))
                             ],
                           )
                         ],
