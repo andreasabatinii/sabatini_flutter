@@ -23,12 +23,26 @@ class AuthView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('ChatAndrea',
-                    style: GoogleFonts.sora(
-                      color: Color(0xFFFFAD33),
-                      fontSize: 21,
-                      fontWeight: FontWeight.w500
-                    ),
+                    Row(
+                      children: [
+                        Text('ChatAndrea',
+                        style: GoogleFonts.sora(
+                          color: Color(0xFFFFAD33),
+                          fontSize: 21,
+                          fontWeight: FontWeight.w700
+                        ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Container(
+                          height: 18,
+                          width: 18,
+                          decoration: BoxDecoration(
+                          color: Color(0xFFFFAD33),
+                          borderRadius: BorderRadius.circular(20), // Imposta il border radius desiderato
+                          ))
+                      ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +54,7 @@ class AuthView extends StatelessWidget {
                           fontWeight: FontWeight.bold
                         ),
                         ),
-                        Text('to discover what is new',
+                        Text("to discover what's new",
                         style: GoogleFonts.sora(
                           color: Color(0xFFFFAD33),
                           fontSize: 36,
@@ -86,7 +100,7 @@ class AuthView extends StatelessWidget {
                                   height: 48,
                                   decoration: BoxDecoration(
                                     color: Color(0xFF1F57FF),
-                                    borderRadius: BorderRadius.circular(8)
+                                    borderRadius: BorderRadius.circular(6)
                                   ),
                                   child: Center(
                                     child: Text('Log in',
@@ -104,10 +118,10 @@ class AuthView extends StatelessWidget {
                                 child: Container(
                                   height: 48,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8),
+                                    borderRadius: BorderRadius.circular(6),
                                     border: Border.all(
                                     color: Color(0xFF1F57FF), // Colore del bordo
-                                    width: 2, // Spessore del bordo
+                                    width: 1.5, // Spessore del bordo
                                   ),
                                   ),
                                   child: Center(
@@ -126,8 +140,18 @@ class AuthView extends StatelessWidget {
                       Column(
                         children: [
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              //Image(image: image),
+                              Container(
+                                height: 18,
+                                width: 18,
+                                decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 216, 216, 216),
+                                borderRadius: BorderRadius.circular(20), // Imposta il border radius desiderato
+                                )),
+                              SizedBox(
+                                width: 10,
+                              ),
                               Text('OpenAI',
                               style: GoogleFonts.sora(
                                 fontSize: 14,
