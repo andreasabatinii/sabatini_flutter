@@ -1,7 +1,5 @@
-import 'package:andrea_sabatini_flutter/src/presentation/auth/auth.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/home/home.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -34,8 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AuthView(),
+      home: const HomeView(),
     );
   }
 }
-
