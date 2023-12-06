@@ -8,11 +8,16 @@ class ListviewMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 18, right: 18),
       child: ListView(
         children: const [
+          SearchedTime(time: 'Today'),
+          SearchedItem(input: 'How to crate variables in Flutter'),
+          SearchedItem(input: 'Add an image to my code'),
+          SearchedItem(input: 'Adding a margin to my element'),
+          //separatore
           SearchedTime(time: 'Yesterday'),
-          SearchedItem(input: 'Social Strategy'),
+          SearchedItem(input: 'Social Strategy for a brand'),
           SearchedItem(input: 'Flutter Tutorial'),
           //separatore
           SearchedTime(time: 'Previous 7 days'),
@@ -33,9 +38,15 @@ class ListviewMenu extends StatelessWidget {
           SearchedItem(input: 'Improving as a designer'),
           //separatore
           SearchedTime(time: 'September'),
-          SearchedItem(input: 'Learninng to code'),
+          SearchedItem(input: 'Learning to code'),
           SearchedItem(input: 'Best Plugins for Visual Studio'),
           SearchedItem(input: 'Importing a CSS file in HTML'),
+          //separatore
+          SearchedTime(time: 'August'),
+          SearchedItem(input: 'Places to visit in Corfu'),
+          SearchedItem(input: 'Best beaches in Greece'),
+          SearchedItem(input: 'How to inspect a page'),
+          SearchedItem(input: 'What to see in Puglia'),
         ],
       ),
     );

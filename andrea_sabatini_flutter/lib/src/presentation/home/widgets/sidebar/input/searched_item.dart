@@ -9,7 +9,7 @@ class SearchedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 5, bottom: 5),
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
       child: Text(
         input,
         style: GoogleFonts.sora(

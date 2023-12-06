@@ -9,9 +9,9 @@ class SearchedTime extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 32),
+      margin: const EdgeInsets.only(top: 24),
       child: Padding(
-        padding: const EdgeInsets.only(top: 10, bottom: 5),
+        padding: const EdgeInsets.only(top: 10, bottom: 8),
         child: Text(
           time,
           style: GoogleFonts.sora(color: const Color(0xFF666666), fontSize: 12),
