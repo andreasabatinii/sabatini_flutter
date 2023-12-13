@@ -10,7 +10,6 @@ class Sidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xFF101010),
-      width: 300,
       child: const Column(
         children: [UpperMenu(), Expanded(child: ListviewMenu()), User()],
       ),
