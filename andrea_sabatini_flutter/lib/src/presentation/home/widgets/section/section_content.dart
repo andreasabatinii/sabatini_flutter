@@ -1,5 +1,8 @@
+import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/lower_row.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/middle_row.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/upper_row.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 
 class SectionContent extends StatelessWidget {
   const SectionContent({super.key});
@@ -18,35 +21,16 @@ class SectionContent extends StatelessWidget {
             child: const Icon(Icons.menu, color: Colors.black, size: 21),
           ),
         Expanded(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(right: 16.0),
-                    child: Text('ChatGPT',
-                        style: GoogleFonts.sora(
-                            color: const Color(0xFF101010),
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600)),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(right: 16.0),
-                    child: Text('3.5',
-                        style: GoogleFonts.sora(
-                            color: const Color(0xFF666666),
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600)),
-                  ),
-                  const Icon(
-                    Icons.add_task,
-                    color: Colors.black,
-                    size: 21,
-                  ),
-                ],
-              ),
-              const Row()
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                UpperRow(),
+                MiddleRow(),
+                LowerRow()
+              ],
+            ),
           ),
         ),
       ],
