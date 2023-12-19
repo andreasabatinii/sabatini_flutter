@@ -7,42 +7,37 @@ class MiddleRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-          Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(bottom: 10),
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  
-                  border: Border.all(
-                      color: Colors.black, 
-                      width: 0.2,         
-                    ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: Image.asset(
-                    'assets/chat_gpt_logo.png',
-                    fit: BoxFit.cover,
-                  ),
+        Column(
+          children: [
+            Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              width: 60,
+              height: 60,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 0.2,
                 ),
               ),
-    
-              Text('How can I help you today?',
-                    style: GoogleFonts.sora(
-                        color: const Color(0xFF101010),
-                        fontSize: 24,
-                        fontWeight: FontWeight.w600)),
-                  
-       ],)
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: Image.asset(
+                  'assets/chat_gpt_logo.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Text('How can I help you today?',
+                style: GoogleFonts.sora(
+                    color: const Color(0xFF101010),
+                    fontSize: 24,
+                    fontWeight: FontWeight.w600)),
+          ],
+        )
       ],
     );
   }
 }
-
-
-
-      

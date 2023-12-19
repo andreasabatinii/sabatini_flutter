@@ -20,16 +20,13 @@ class SectionContent extends StatelessWidget {
             },
             child: const Icon(Icons.menu, color: Colors.black, size: 21),
           ),
-        Expanded(
+        const Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                UpperRow(),
-                MiddleRow(),
-                LowerRow()
-              ],
+              //crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [UpperRow(), MiddleRow(), LowerRow()],
             ),
           ),
         ),
