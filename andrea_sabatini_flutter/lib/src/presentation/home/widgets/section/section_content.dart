@@ -11,7 +11,7 @@ class SectionContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (MediaQuery.sizeOf(context).width <= 700)
+        if (MediaQuery.sizeOf(context).width <= 750)
           GestureDetector(
             onTap: () {
               if (!Scaffold.of(context).isDrawerOpen) {
@@ -22,7 +22,7 @@ class SectionContent extends StatelessWidget {
           ),
         const Expanded(
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: EdgeInsets.only(top: 20, bottom: 10, left: 20, right: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               //crossAxisAlignment: CrossAxisAlignment.stretch,

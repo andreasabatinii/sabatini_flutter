@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: const Sidebar()),
       body: LayoutBuilder(builder: (context, contstraints) {
-        final isMobile = contstraints.maxWidth <= 700;
+        final isMobile = contstraints.maxWidth <= 750;
         return Row(
           children: [
             //Sidebar

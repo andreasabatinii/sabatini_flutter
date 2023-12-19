@@ -1,4 +1,5 @@
 //import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/suggested/suggested_button.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/input/input_field.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/rows/suggested/suggested_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,37 +22,42 @@ class LowerRow extends StatelessWidget {
                   children: [
                     Expanded(
                       child: SuggestedButton(
-                          title: 'Brainstorm names',
-                          description: 'for a new galaxy'),
+                          title: 'Create a landing page',
+                          description: 'for a restaurant'),
                     ),
                     SizedBox(width: 8),
                     Expanded(
                       child: SuggestedButton(
-                          title: 'Funziona', description: 'ciao'),
+                          title: 'Help me find books',
+                          description: 'about graphic design'),
                     ),
                   ],
                 ),
                 const SizedBox(height: 8),
-                Row(
+                const Row(
                   children: [
                     Expanded(
-                        child: Container(
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.black,
-                          width: 0.2,
-                        ),
-                      ),
-                    ))
+                      child: SuggestedButton(
+                          title: 'Help me get better',
+                          description: 'for an interview'),
+                    ),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: SuggestedButton(
+                          title: 'Brainstorm names',
+                          description: 'for a new galaxy'),
+                    ),
                   ],
+                ),
+                const SizedBox(height: 8),
+                const Row(
+                  children: [Expanded(child: InputField())],
                 ),
                 const SizedBox(height: 8),
                 Text(
                   'ChatGPT can make mistakes. Consider checking important information',
                   style: GoogleFonts.sora(
-                    color: const Color(0xFF101010),
+                    color: const Color(0xFF8F8F8F),
                     fontSize: 10,
                   ),
                 ),
