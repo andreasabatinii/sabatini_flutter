@@ -10,12 +10,17 @@ class SearchedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 8),
-      child: Text(
-        input,
-        style: GoogleFonts.sora(
-          color: const Color(0xFFFFFFFF),
-          fontSize: 14,
-          fontWeight: FontWeight.w300,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Text(
+          input,
+          style: GoogleFonts.sora(
+            color: const Color(0xFFFFFFFF),
+            fontSize: 14,
+            fontWeight: FontWeight.w300,
+          ),
         ),
       ),
     );
