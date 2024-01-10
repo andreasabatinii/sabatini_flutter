@@ -1,4 +1,4 @@
-import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/section/section_content.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/chat_section/chat_section.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,7 +10,8 @@ class MainSection extends StatelessWidget {
     return Expanded(
         child: Stack(
       children: [
-        const SectionContent(),
+        const ChatSection(),
+        //const SectionContent(),
         Positioned(
           bottom: 10,
           right: 10,

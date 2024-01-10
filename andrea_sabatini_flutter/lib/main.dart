@@ -1,7 +1,15 @@
 import 'package:andrea_sabatini_flutter/src/presentation/home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://tegtepyvuqmwsdxrfald.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRlZ3RlcHl2dXFtd3NkeHJmYWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDQ4ODYxMTEsImV4cCI6MjAyMDQ2MjExMX0.sIBljd8KsziomAN2RoDVaSPgTqybw5_GW1H6KEdKKug',
+  );
   runApp(const MyApp());
 }
 

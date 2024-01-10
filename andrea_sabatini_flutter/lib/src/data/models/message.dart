@@ -14,7 +14,7 @@ class Message {
   final String content;
 
   static Message fromJson(Map<String, dynamic> json) {
-    return json['type'] == MessageTypes.ai.name
+    return json['from'] == MessageTypes.ai.name
         ? MessageAi.fromJson(json)
         : MessageUser.fromJson(json);
   }
