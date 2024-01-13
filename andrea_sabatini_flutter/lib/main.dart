@@ -1,4 +1,4 @@
-import 'package:andrea_sabatini_flutter/src/presentation/home/home.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: const MainPage(),
     );
   }
 }
