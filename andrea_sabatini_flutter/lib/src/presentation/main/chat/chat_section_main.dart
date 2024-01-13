@@ -1,3 +1,5 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/chat_bottom.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/middle_chat/user_logo_middle.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/upper_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +19,10 @@ class ChatSection extends StatelessWidget {
       child: const Column(
         children: [
           UpperChat(),
+          Spacer(),
+          MiddleRowChat(),
+          Spacer(),
+          BottomChatColumn()
         ],
       ),
     ));
