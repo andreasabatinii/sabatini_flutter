@@ -14,9 +14,8 @@ class MainPage extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                padding: const EdgeInsets.all(2),
                 width: 270,
-                color: Colors.white,
+                color: const Color(0xFF101010),
                 child: const ChatSidebar()),
             const SizedBox(width: 20),
             const ChatSection(),
