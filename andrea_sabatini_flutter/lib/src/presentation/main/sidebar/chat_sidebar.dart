@@ -1,4 +1,5 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/components/chat_options.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/folders%20components/chat_folder.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/user%20settings/user_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,6 +44,8 @@ class ChatSidebar extends StatelessWidget {
           width: double.infinity,
           color: const Color.fromRGBO(255, 255, 255, 0.65),
         ),
+        const SizedBox(height: 16),
+        const ChatFolder(),
         const Spacer(),
         const UserSettings()
       ],
