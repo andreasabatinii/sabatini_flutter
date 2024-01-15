@@ -1,3 +1,4 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/folders%20components/folder_actions_component.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/folders%20components/folder_items_component.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,9 @@ class ChatFolder extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
+        FolderActionsComponent(
+            folderaction: 'Chat folders', folderactionicon: Icons.expand_more),
+        SizedBox(height: 8),
         FolderItemsComponents(
             chatnumber: '16',
             foldername: 'Relationships',
@@ -27,6 +31,9 @@ class ChatFolder extends StatelessWidget {
             chatnumber: '4',
             foldername: 'Summaries',
             foldercolor: Color(0xFFFF72F1)),
+        SizedBox(height: 8),
+        FolderActionsComponent(
+            folderaction: 'New list', folderactionicon: Icons.add),
       ],
     );
   }
