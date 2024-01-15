@@ -11,7 +11,7 @@ class FolderActionsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           gradient: const LinearGradient(
@@ -38,7 +38,7 @@ class FolderActionsComponent extends StatelessWidget {
             opticalSize: 20.0,
             fill: 0,
           ),
-          const SizedBox(width: 16),
+          const SizedBox(width: 12),
           Text(
             folderaction,
             style: GoogleFonts.sora(

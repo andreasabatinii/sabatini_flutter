@@ -13,9 +13,9 @@ class RecommendedComponent extends StatelessWidget {
     return Container(
         width: 250,
         //color: const Color(0xFF101010),
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
           color: const Color(0xFFFFFFFF),
           boxShadow: const [
             BoxShadow(

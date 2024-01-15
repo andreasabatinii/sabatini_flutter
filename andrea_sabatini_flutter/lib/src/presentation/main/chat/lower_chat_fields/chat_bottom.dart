@@ -11,6 +11,7 @@ class BottomChatColumn extends StatelessWidget {
     return Column(
       children: [
         const ChatRecommended(),
+        const SizedBox(height: 10),
         const TextfieldChat(),
         const SizedBox(height: 10),
         Text('SuperMind may make some mistakes. Nobody is perfect!',
