@@ -13,27 +13,27 @@ class ChatFolder extends StatelessWidget {
             folderaction: 'Chat folders', folderactionicon: Icons.expand_more),
         SizedBox(height: 8),
         FolderItemsComponents(
-            chatnumber: '16',
+            chatnumber: '2',
             foldername: 'Relationships',
             foldercolor: Color(0xFFFC365E)),
         SizedBox(height: 8),
         FolderItemsComponents(
-            chatnumber: '48',
+            chatnumber: '5',
             foldername: 'Learning IED',
             foldercolor: Color(0xFF3A72FF)),
         SizedBox(height: 8),
         FolderItemsComponents(
-            chatnumber: '130',
+            chatnumber: '3',
             foldername: 'Self Improvement',
             foldercolor: Color(0xFFFEA82F)),
         SizedBox(height: 8),
         FolderItemsComponents(
-            chatnumber: '4',
+            chatnumber: '2',
             foldername: 'Summaries',
             foldercolor: Color(0xFFFF72F1)),
         SizedBox(height: 8),
         FolderActionsComponent(
-            folderaction: 'New list', folderactionicon: Icons.add),
+            folderaction: 'New folder', folderactionicon: Icons.add),
       ],
     );
   }

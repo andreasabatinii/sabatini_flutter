@@ -1,3 +1,4 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/components/hovered_options_single_components.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/components/options_single_components.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class ChatOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        ChatOptionsComponents(
+        HoveredChatOptionsComponents(
             optionsicon: Icons.chat_outlined,
             chatoptionsname: 'Chats',
             shortcut: 'Shift + C'),
