@@ -1,4 +1,3 @@
-import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/chat_recommended.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/textfield_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,7 +9,7 @@ class BottomChatColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ChatRecommended(),
+        //const ChatRecommended(),
         const SizedBox(height: 10),
         const TextfieldChat(),
         const SizedBox(height: 10),

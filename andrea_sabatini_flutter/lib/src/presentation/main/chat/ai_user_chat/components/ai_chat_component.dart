@@ -1,3 +1,4 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_buttons_components.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -24,29 +25,42 @@ class AiChatComponent extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Expanded(
-            child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                decoration: BoxDecoration(
-                  //color: const Color(0xFF101010),
-                  borderRadius: BorderRadius.circular(6),
-                  border: Border.all(
-                    color: const Color(0xFF101010),
-                    width: 1,
-                  ),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(response,
-                          style: GoogleFonts.sora(
-                            color: const Color(0xFF101010),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                          )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 16),
+                    decoration: BoxDecoration(
+                      //color: const Color(0xFF101010),
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(
+                        color: const Color(0xFF101010),
+                        width: 1,
+                      ),
                     ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(response,
+                              style: GoogleFonts.sora(
+                                color: const Color(0xFF101010),
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              )),
+                        ),
+                      ],
+                    )),
+                const SizedBox(height: 8),
+                const Row(
+                  children: [
+                    AiButtons(buttonaction: 'Copy'),
+                    AiButtons(buttonaction: 'Regenerate response')
                   ],
-                )),
+                )
+              ],
+            ),
           ),
         ],
       ),
