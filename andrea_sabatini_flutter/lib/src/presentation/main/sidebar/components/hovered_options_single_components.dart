@@ -100,8 +100,8 @@ class _HoveredChatOptionsComponentsState
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   color: widget.isSelected
-                      ? const Color.fromRGBO(255, 255, 255, 0.15)
-                      : const Color.fromRGBO(0, 0, 0, 0.20),
+                      ? const Color.fromRGBO(0, 0, 0, 0.15)
+                      : const Color.fromRGBO(0, 0, 0, 0.15),
                   borderRadius: BorderRadius.circular(4),
                 ),
                 child: Text(

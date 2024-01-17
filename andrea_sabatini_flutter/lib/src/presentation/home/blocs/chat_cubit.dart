@@ -14,9 +14,9 @@ class ChatCubit extends Cubit<ChatState> {
     emit(const ChatLoading()); //carica uno stato della pagina
     Supabase.instance.client.from('messages').select().then(
           (value) => emit(
-            ChatLoaded(
-                messages: value.map((e) => Message.fromJson(e)).toList()),
-          ),
+              ChatLoaded(
+                  messages: value.map((e) => Message.fromJson(e)).toList()),
+              messageLoading: false),
           onError: (error) => emit(
             ChatError(error: error.toString()),
           ),
@@ -30,7 +30,7 @@ class ChatCubit extends Cubit<ChatState> {
       headers: {
         "Content-Type": "application/json",
         "Authorization":
-            "Bearer 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"
+            "Bearer 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"
       },
       body: jsonEncode({
         "model": "gpt-3.5-turbo",
@@ -48,7 +48,7 @@ class ChatCubit extends Cubit<ChatState> {
       (res) {
         if (res.statusCode == 200) {
           // == 200 mi dice se la chiamata è andata bene
-          final map = jsonDecode(res.body);
+          final map = jsonDecode(utf8.decode(res.bodyBytes));
           final content = map['choices'][0]['message']['content'];
           Supabase.instance.client.from('messages').insert({
             'id': const Uuid().v1(),
@@ -59,7 +59,8 @@ class ChatCubit extends Cubit<ChatState> {
               if (state is ChatLoaded) {
                 final message = MessageUser(content: content);
                 emit(ChatLoaded(
-                    messages: [...(state as ChatLoaded).messages, message]));
+                    messages: [...(state as ChatLoaded).messages, message],
+                    messageLoading: false));
               }
             },
             onError: (error) => emit(
@@ -88,7 +89,8 @@ class ChatCubit extends Cubit<ChatState> {
         if (state is ChatLoaded) {
           final message = MessageUser(content: content);
           emit(ChatLoaded(
-              messages: [...(state as ChatLoaded).messages, message]));
+              messages: [...(state as ChatLoaded).messages, message],
+              messageLoading: true));
           sendMessageToChatgtp(content);
         }
       },
@@ -118,11 +120,10 @@ class ChatLoading extends ChatState {
 }
 
 class ChatLoaded extends ChatState {
-  const ChatLoaded({
-    required this.messages,
-  });
+  const ChatLoaded({required this.messages, required this.messageLoading});
 
   final List<Message> messages;
+  final bool messageLoading;
 
   @override
   List<Object?> get props => [messages];
