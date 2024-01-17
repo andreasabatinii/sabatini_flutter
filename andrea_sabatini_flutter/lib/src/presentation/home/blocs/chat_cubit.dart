@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:andrea_sabatini_flutter/src/data/models/message.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
 
@@ -18,6 +21,61 @@ class ChatCubit extends Cubit<ChatState> {
             ChatError(error: error.toString()),
           ),
         );
+  }
+
+  void sendMessageToChatgtp(String content) {
+    http
+        .post(
+      Uri.parse('https://api.openai.com/v1/chat/completions'),
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization":
+            "Bearer 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"
+      },
+      body: jsonEncode({
+        "model": "gpt-3.5-turbo",
+        "messages": [
+          {
+            "role": "system",
+            "content":
+                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response"
+          }, //definisco che tipo di bot è
+          {"role": "user", "content": content}
+        ]
+      }),
+    )
+        .then(
+      (res) {
+        if (res.statusCode == 200) {
+          // == 200 mi dice se la chiamata è andata bene
+          final map = jsonDecode(res.body);
+          final content = map['choices'][0]['message']['content'];
+          Supabase.instance.client.from('messages').insert({
+            'id': const Uuid().v1(),
+            'content': content,
+            'from': MessageTypes.ai.name,
+          }).then(
+            (_) {
+              if (state is ChatLoaded) {
+                final message = MessageUser(content: content);
+                emit(ChatLoaded(
+                    messages: [...(state as ChatLoaded).messages, message]));
+              }
+            },
+            onError: (error) => emit(
+              ChatError(error: error.toString()),
+            ),
+          );
+        } else {
+          emit(
+            const ChatError(error: 'Ops, there was an error whit your chat...'),
+          );
+        }
+      },
+      onError: (error) => emit(
+        ChatError(error: error.toString()),
+      ),
+    );
   } //then = quando hai caricato, restituisci tutti i valori della tabella
 
   void insert(String content) {
@@ -31,6 +89,7 @@ class ChatCubit extends Cubit<ChatState> {
           final message = MessageUser(content: content);
           emit(ChatLoaded(
               messages: [...(state as ChatLoaded).messages, message]));
+          sendMessageToChatgtp(content);
         }
       },
       onError: (error) => emit(
