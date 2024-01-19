@@ -30,7 +30,7 @@ class ChatFolder extends StatelessWidget {
         FolderItemsComponents(
             chatnumber: '2',
             foldername: 'Summaries',
-            foldercolor: Color(0xFFFF72F1)),
+            foldercolor: Color(0xFFFFFFFF)),
         SizedBox(height: 8),
         FolderActionsComponent(
             folderaction: 'New folder', folderactionicon: Icons.add),

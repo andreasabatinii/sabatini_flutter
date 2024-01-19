@@ -15,10 +15,6 @@ class UserChatComponent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-              constraints: const BoxConstraints(
-                minWidth: 0,
-                minHeight: 0,
-              ),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               decoration: BoxDecoration(
                 color: const Color(0xFF101010),

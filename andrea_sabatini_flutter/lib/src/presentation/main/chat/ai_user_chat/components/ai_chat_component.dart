@@ -53,10 +53,27 @@ class AiChatComponent extends StatelessWidget {
                       ],
                     )),
                 const SizedBox(height: 8),
-                const Row(
+                Row(
                   children: [
-                    AiButtons(buttonaction: 'Copy'),
-                    AiButtons(buttonaction: 'Regenerate response')
+                    const AiButtons(buttonaction: 'Copy'),
+                    const AiButtons(buttonaction: 'Regenerate response'),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 7, vertical: 7),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF101010),
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: const Icon(
+                        Icons.favorite_outline,
+                        color: Color(0xFFFFFFFF),
+                        size: 14,
+                        weight: 100,
+                        grade: -25,
+                        opticalSize: 20.0,
+                        fill: 0,
+                      ),
+                    ),
                   ],
                 )
               ],
