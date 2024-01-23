@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MessageUserWidget extends StatelessWidget {
-  const MessageUserWidget({super.key, required this.label});
+class UserChatComponent extends StatelessWidget {
+  const UserChatComponent({super.key, required this.label});
 
   final String label;
 

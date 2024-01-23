@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MessageAiWidget extends StatelessWidget {
-  const MessageAiWidget(
+class AiChatComponent extends StatelessWidget {
+  const AiChatComponent(
       {super.key, //2
       required this.label});
 

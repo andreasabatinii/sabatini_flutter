@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
 
-class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(const ChatInitial());
+class ChatCubitMain extends Cubit<ChatState> {
+  ChatCubitMain() : super(const ChatInitial());
 
   void loadMessages() {
     emit(const ChatLoading()); //carica uno stato della pagina

@@ -13,20 +13,14 @@ class FolderActionsComponent extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Color(0xFF212121), Color(0xFF3E3E3E)],
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0xFFFFFFFF), // Colore dell'ombra
-              spreadRadius: 0, // Raggio di diffusione
-              blurRadius: 0, // Raggio di sfocatura
-              offset: Offset(-1, 0), // Offset (spostamento) dell'ombra
-            ),
-          ]),
+        borderRadius: BorderRadius.circular(8),
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF212121), Color(0xFF3E3E3E)],
+        ),
+        //boxShadow: const [BoxShadow(color: Color(0xFFFFFFFF), spreadRadius: 0, blurRadius: 0, offset: Offset(-1, 0),),]
+      ),
       child: Row(
         children: [
           Icon(

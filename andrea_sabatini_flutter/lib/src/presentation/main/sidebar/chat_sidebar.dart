@@ -46,7 +46,7 @@ class ChatSidebar extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         const ChatFolder(),
-        const Spacer(),
+        const SizedBox(height: 0),
         const UserSettings()
       ],
     );

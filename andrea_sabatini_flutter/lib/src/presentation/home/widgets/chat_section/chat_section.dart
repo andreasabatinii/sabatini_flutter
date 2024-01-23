@@ -44,8 +44,8 @@ class _ChatSection extends StatelessWidget {
                   children: [
                     for (final message in state.messages)
                       message is MessageAi
-                          ? MessageAiWidget(label: message.content)
-                          : MessageUserWidget(label: message.content),
+                          ? AiChatComponent(label: message.content)
+                          : UserChatComponent(label: message.content),
                   ],
                 ),
               ),
@@ -74,8 +74,8 @@ class _ChatSection extends StatelessWidget {
     return Column(
       children: messages
           .map((e) => e['type'] == 'user'
-              ? MessageUserWidget(label: e['message'] as String)
-              : MessageAiWidget(label: e['message'] as String))
+              ? UserChatComponent(label: e['message'] as String)
+              : AiChatComponent(label: e['message'] as String))
           .toList(),
     );
 
@@ -83,8 +83,8 @@ class _ChatSection extends StatelessWidget {
       children: [
         for (final message in messages)
           message['type'] == 'user'
-              ? MessageUserWidget(label: message['message'] as String)
-              : MessageAiWidget(label: message['message'] as String),
+              ? UserChatComponent(label: message['message'] as String)
+              : AiChatComponent(label: message['message'] as String),
       ],
     );*/
   }
