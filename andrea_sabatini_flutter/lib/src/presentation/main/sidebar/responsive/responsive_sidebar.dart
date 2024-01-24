@@ -13,7 +13,7 @@ class TightSidebar extends StatelessWidget {
           width: 35,
           decoration: BoxDecoration(
             color: const Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(6),
           ),
         ),
         const SizedBox(height: 10),

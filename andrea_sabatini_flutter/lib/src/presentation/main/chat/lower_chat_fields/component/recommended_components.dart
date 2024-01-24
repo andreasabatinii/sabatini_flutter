@@ -10,45 +10,47 @@ class RecommendedComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 250,
-        //color: const Color(0xFF101010),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: const Color(0xFFFFFFFF),
-          boxShadow: const [
-            BoxShadow(
-              color: Color(0xFF101010), // Colore dell'ombra
-              spreadRadius: 0, // Raggio di diffusione
-              blurRadius: 0, // Raggio di sfocatura
-              offset: Offset(-1, 1), // Offset (spostamento) dell'ombra
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              suggestedinput,
-              style: GoogleFonts.sora(
-                color: const Color(0xFF101010),
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
+    return Expanded(
+      child: Container(
+          //width: 250,
+          //color: const Color(0xFF101010),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: const Color(0xFFFFFFFF),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0xFF101010), // Colore dell'ombra
+                spreadRadius: 0, // Raggio di diffusione
+                blurRadius: 0, // Raggio di sfocatura
+                offset: Offset(-1, 1), // Offset (spostamento) dell'ombra
               ),
-            ),
-            const SizedBox(width: 10),
-            Icon(
-              iconsuggested,
-              color: const Color(0xFF101010),
-              size: 21,
-              weight: 100,
-              grade: -25,
-              opticalSize: 20.0,
-              fill: 0,
-            )
-          ],
-        ));
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                suggestedinput,
+                style: GoogleFonts.sora(
+                  color: const Color(0xFF101010),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Icon(
+                iconsuggested,
+                color: const Color(0xFF101010),
+                size: 21,
+                weight: 100,
+                grade: -25,
+                opticalSize: 20.0,
+                fill: 0,
+              )
+            ],
+          )),
+    );
   }
 }
 

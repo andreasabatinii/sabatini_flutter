@@ -13,8 +13,8 @@ class UpperChat extends StatelessWidget {
       children: [
         Container(
           decoration: const BoxDecoration(
-            border: Border(
-                bottom: BorderSide(width: 1.0, color: Color(0xffAEAEAE))),
+            border:
+                Border(bottom: BorderSide(width: 1, color: Color(0xffAEAEAE))),
           ),
           padding: const EdgeInsets.only(bottom: 16),
           child: const Row(

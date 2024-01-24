@@ -6,43 +6,51 @@ class ChatRecommended extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return LayoutBuilder(builder: (context, constraints) {
+      double rowWidth = MediaQuery.of(context).size.width * 0.6;
+
+      // Se la larghezza dello schermo è inferiore a 800 px, imposta la larghezza al 100%
+      if (constraints.maxWidth < 800) {
+        rowWidth = constraints.maxWidth;
+      }
+      return Container(
+        constraints: BoxConstraints(maxWidth: rowWidth),
+        child: const Column(
           children: [
-            RecommendedComponent(
-              suggestedinput: 'Something cool',
-              iconsuggested: Icons.local_fire_department_outlined,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                //RecommendedComponent( suggestedinput: 'Something cool', iconsuggested: Icons.local_fire_department_outlined,),
+                //SizedBox(width: 10),
+                RecommendedComponent(
+                  suggestedinput: 'Code genarator',
+                  iconsuggested: Icons.code,
+                ),
+                SizedBox(width: 10),
+                RecommendedComponent(
+                  suggestedinput: 'Summary',
+                  iconsuggested: Icons.note_add_outlined,
+                ),
+              ],
             ),
-            SizedBox(width: 10),
-            RecommendedComponent(
-              suggestedinput: 'Code genarator',
-              iconsuggested: Icons.code,
-            ),
-            SizedBox(width: 10),
-            RecommendedComponent(
-              suggestedinput: 'Summary',
-              iconsuggested: Icons.note_add_outlined,
-            ),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RecommendedComponent(
+                  suggestedinput: 'Video generator',
+                  iconsuggested: Icons.play_circle_outlined,
+                ),
+                SizedBox(width: 10),
+                RecommendedComponent(
+                  suggestedinput: 'Audio genarator',
+                  iconsuggested: Icons.graphic_eq,
+                ),
+              ],
+            )
           ],
         ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RecommendedComponent(
-              suggestedinput: 'Video generator',
-              iconsuggested: Icons.play_circle_outlined,
-            ),
-            SizedBox(width: 10),
-            RecommendedComponent(
-              suggestedinput: 'Audio genarator',
-              iconsuggested: Icons.graphic_eq,
-            ),
-          ],
-        )
-      ],
-    );
+      );
+    });
   }
 }
