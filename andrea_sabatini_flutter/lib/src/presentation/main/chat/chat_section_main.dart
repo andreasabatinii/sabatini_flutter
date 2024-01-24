@@ -9,23 +9,30 @@ class ChatSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          if (!Scaffold.of(context).isDrawerOpen) {
+            Scaffold.of(context).openDrawer();
+          }
+        },
         child: Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white, // Sostituisci con il colore desiderato
-        borderRadius:
-            BorderRadius.circular(10), // Sostituisci con il raggio desiderato
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: const Column(
+            children: [
+              UpperChat(),
+              Spacer(),
+              MiddleRowChat(),
+              // AiUserChat(),
+              Spacer(),
+              BottomChatColumn(),
+            ],
+          ),
+        ),
       ),
-      child: const Column(
-        children: [
-          UpperChat(),
-          Spacer(),
-          MiddleRowChat(),
-          //AiUserChat(),
-          Spacer(),
-          BottomChatColumn()
-        ],
-      ),
-    ));
+    );
   }
 }

@@ -8,8 +8,8 @@ class ChatIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth > 800) {
-          // Se la larghezza è superiore a 800 px, non mostrare l'ultimo Container
+        // print(constraints.maxWidth);
+        if (constraints.maxWidth >= 800) {
           return const Row(
             children: [
               Icon(
@@ -32,7 +32,6 @@ class ChatIcons extends StatelessWidget {
             ],
           );
         } else {
-          // Altrimenti, mostra l'intera Row
           return Row(
             children: [
               const Icon(

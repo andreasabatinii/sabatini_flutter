@@ -22,6 +22,7 @@ class MiddleRowChat extends StatelessWidget {
         const SizedBox(height: 18),
         Text(
           'How can we team up today Andrea?',
+          textAlign: TextAlign.center,
           style: GoogleFonts.sora(
             color: const Color(0xFF101010),
             fontSize: 18,

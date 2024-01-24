@@ -10,11 +10,12 @@ class BottomChatColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ChatRecommended(),
+        if (MediaQuery.of(context).size.width >= 600) const ChatRecommended(),
         const SizedBox(height: 10),
         const TextfieldChat(),
         const SizedBox(height: 10),
         Text('SuperMind may make some mistakes. Nobody is perfect!',
+            textAlign: TextAlign.center,
             style: GoogleFonts.sora(
               color: const Color(0xFF101010),
               fontSize: 12,
