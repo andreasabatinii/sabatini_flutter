@@ -2,6 +2,8 @@ import 'package:andrea_sabatini_flutter/src/data/models/message.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/chat_section/messages/message_ai.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/chat_section/messages/message_user.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_chat_component.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/user_chat_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -36,6 +38,11 @@ class _ChatSection extends StatelessWidget {
           );
         }
         if (state is ChatLoaded) {
+          if (state.messages.isEmpty) {
+            return Center(
+              child: Text('No messages'),
+            );
+          }
           state.messages;
           return Column(
             children: [

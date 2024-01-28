@@ -1,7 +1,8 @@
-import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/chat_title.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/icons/chat_icons.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UpperChat extends StatelessWidget {
   const UpperChat({super.key});
@@ -13,27 +14,24 @@ class UpperChat extends StatelessWidget {
       children: [
         Container(
           decoration: const BoxDecoration(
-            border:
-                Border(bottom: BorderSide(width: 1, color: Color(0xffAEAEAE))),
+            border: Border(bottom: BorderSide(width: 1, color: Palette.gray)),
           ),
-          padding: const EdgeInsets.only(bottom: 16),
+          padding: const EdgeInsets.only(bottom: Grid.medium),
           child: const Row(
             children: [
-              ChatTitle(
-                chattitle: "Lets' start a new chat",
+              TitlesText(
+                "Lets' start a new chat",
               ),
               Spacer(),
               ChatIcons()
             ],
           ),
         ),
-        const SizedBox(height: 16),
-        Text('Chats >> Learning IED',
-            style: GoogleFonts.sora(
-              color: const Color(0xFFAEAEAE),
-              fontSize: 14,
-              fontWeight: FontWeight.w300,
-            ))
+        const SizedBox(height: Grid.medium),
+        const SmallParagraph(
+          'Chats >> Learning IED',
+          textcolor: Palette.gray,
+        )
       ],
     );
   }

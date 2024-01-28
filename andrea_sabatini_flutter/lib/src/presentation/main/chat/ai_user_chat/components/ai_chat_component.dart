@@ -1,4 +1,5 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_buttons_components.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -33,10 +34,10 @@ class AiChatComponent extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 16, vertical: 16),
                     decoration: BoxDecoration(
-                      //color: const Color(0xFF101010),
+                      //color: const Palette.black,
                       borderRadius: BorderRadius.circular(6),
                       border: Border.all(
-                        color: const Color(0xFF101010),
+                        color: Palette.black,
                         width: 1,
                       ),
                     ),
@@ -45,7 +46,7 @@ class AiChatComponent extends StatelessWidget {
                         Expanded(
                           child: Text(response,
                               style: GoogleFonts.sora(
-                                color: const Color(0xFF101010),
+                                color: Palette.black,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
                               )),
@@ -61,7 +62,7 @@ class AiChatComponent extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 7, vertical: 7),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF101010),
+                        color: Palette.black,
                         borderRadius: BorderRadius.circular(4),
                       ),
                       child: const Icon(

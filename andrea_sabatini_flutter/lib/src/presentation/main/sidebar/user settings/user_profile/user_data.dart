@@ -1,5 +1,8 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserData extends StatelessWidget {
   const UserData(
@@ -23,45 +26,49 @@ class UserData extends StatelessWidget {
               height: 40,
               width: 40,
               decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(
+                    color: Palette.black,
+                    width: 1,
+                  )
+                  //color: Palette.lightblue,
+                  ),
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                color: const Color(0xFFFFFFFF),
+                child: Image.asset(
+                  'assets/profile_photo.jpg', // Sostituisci con il percorso corretto del tuo file immagine
+                  fit: BoxFit
+                      .cover, // Puoi personalizzare la modalità di adattamento dell'immagine
+                ),
               ),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: Grid.medium),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(username,
-                    style: GoogleFonts.sora(
-                      color: const Color(0xFFFFFFFF),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    )),
-                //const SizedBox(height: 4),
-                Text(useremail,
-                    style: GoogleFonts.sora(
-                      color: const Color(0xFFFFFFFF),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w300,
-                    ))
+                BoldParagraph(
+                  username,
+                  textcolor: Palette.black,
+                ),
+                const SizedBox(height: 4),
+                SmallParagraph(
+                  useremail,
+                )
               ],
             )
           ],
         ),
         const Spacer(),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: Text(planstatus,
-              style: GoogleFonts.sora(
-                color: const Color(0xFF101010),
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              )),
-        )
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              color: Palette.black,
+              borderRadius: br4,
+            ),
+            child: SmallParagraph(
+              planstatus,
+              textcolor: Palette.white,
+            ))
       ],
     );
   }

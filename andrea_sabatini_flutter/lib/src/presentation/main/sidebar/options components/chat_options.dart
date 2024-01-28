@@ -1,4 +1,4 @@
-import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/components/hovered_options_single_components.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/options%20components/hovered_options_single_components.dart';
 import 'package:flutter/material.dart';
 
 enum MenuTypes { chat, favourite, search, settings }
@@ -18,7 +18,7 @@ class _ChatOptionsState extends State<ChatOptions> {
     return Column(
       children: [
         HoveredChatOptionsComponents(
-          optionsicon: Icons.chat_outlined,
+          iconpath: 'assets/icons/messages.png',
           chatoptionsname: 'Chats',
           shortcut: 'Shift + C',
           isSelected: selectedType == MenuTypes.chat,
@@ -28,7 +28,7 @@ class _ChatOptionsState extends State<ChatOptions> {
         ),
         const SizedBox(height: 6),
         HoveredChatOptionsComponents(
-          optionsicon: Icons.star_border_outlined,
+          iconpath: 'assets/icons/circle-star.png',
           chatoptionsname: 'Favourite',
           shortcut: 'Control + F',
           isSelected: selectedType == MenuTypes.favourite,
@@ -38,7 +38,7 @@ class _ChatOptionsState extends State<ChatOptions> {
         ),
         const SizedBox(height: 6),
         HoveredChatOptionsComponents(
-          optionsicon: Icons.search,
+          iconpath: 'assets/icons/discover.png',
           chatoptionsname: 'Search',
           shortcut: 'Shift + S',
           isSelected: selectedType == MenuTypes.search,
@@ -48,7 +48,7 @@ class _ChatOptionsState extends State<ChatOptions> {
         ),
         const SizedBox(height: 6),
         HoveredChatOptionsComponents(
-          optionsicon: Icons.settings_outlined,
+          iconpath: 'assets/icons/api.png',
           chatoptionsname: 'Settings',
           shortcut: 'Option + C',
           isSelected: selectedType == MenuTypes.settings,

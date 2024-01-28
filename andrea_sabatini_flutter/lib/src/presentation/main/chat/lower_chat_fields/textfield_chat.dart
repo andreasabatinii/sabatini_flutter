@@ -1,8 +1,18 @@
+import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TextfieldChat extends StatelessWidget {
+class TextfieldChat extends StatefulWidget {
   const TextfieldChat({super.key});
+
+  @override
+  State<TextfieldChat> createState() => _TextfieldChatState();
+}
+
+class _TextfieldChatState extends State<TextfieldChat> {
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +37,12 @@ class TextfieldChat extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                     color: const Color(0xFFFFFFFF),
                     border: Border.all(
-                      color: const Color(0xFF101010),
+                      color: Palette.black,
                       width: 1,
                     ),
                   ),
                   child: TextField(
+                    controller: controller,
                     decoration: InputDecoration(
                       hintText: 'Message SuperMind...',
                       hintStyle: GoogleFonts.sora(
@@ -42,16 +53,19 @@ class TextfieldChat extends StatelessWidget {
                       fillColor: const Color(0xFFFFFFFF),
                       border: InputBorder.none,
                     ),
+                    onSubmitted: (text) {
+                      context.read<ChatCubitMain>().insert(text);
+                    },
                   ),
                 ),
               ),
               const SizedBox(width: 10),
               IconButton(
                 onPressed: () {
-                  print('Invia messaggio');
+                  context.read<ChatCubitMain>().insert(controller.text);
                 },
                 icon: const Icon(Icons.arrow_upward),
-                color: const Color(0xFF101010),
+                color: Palette.black,
                 iconSize: 24,
               ),
             ],

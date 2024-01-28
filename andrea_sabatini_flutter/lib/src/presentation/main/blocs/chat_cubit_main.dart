@@ -29,8 +29,7 @@ class ChatCubitMain extends Cubit<ChatState> {
       Uri.parse('https://api.openai.com/v1/chat/completions'),
       headers: {
         "Content-Type": "application/json",
-        "Authorization":
-            "Bearer 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"
+        "Authorization": "Bearer //"
       },
       body: jsonEncode({
         "model": "gpt-3.5-turbo",
@@ -38,7 +37,7 @@ class ChatCubitMain extends Cubit<ChatState> {
           {
             "role": "system",
             "content":
-                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response"
+                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response. When you are asked about code and solving problems, your responses are very clear and long"
           }, //definisco che tipo di bot è
           {"role": "user", "content": content}
         ]
@@ -87,6 +86,7 @@ class ChatCubitMain extends Cubit<ChatState> {
       'from': MessageTypes.user.name,
     }).then(
       (_) {
+        print(state);
         if (state is ChatLoaded) {
           final message = MessageUser(content: content);
           emit(ChatLoaded(

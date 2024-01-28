@@ -7,8 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:uuid/uuid.dart';
 
-class ChatCubit extends Cubit<ChatState> {
-  ChatCubit() : super(const ChatInitial());
+class ChatCubitMain extends Cubit<ChatState> {
+  ChatCubitMain() : super(const ChatInitial());
 
   void loadMessages() {
     emit(const ChatLoading()); //carica uno stato della pagina
@@ -30,7 +30,7 @@ class ChatCubit extends Cubit<ChatState> {
       headers: {
         "Content-Type": "application/json",
         "Authorization":
-            "Bearer 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"
+            "Bearer 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"
       },
       body: jsonEncode({
         "model": "gpt-3.5-turbo",
@@ -87,6 +87,7 @@ class ChatCubit extends Cubit<ChatState> {
       'from': MessageTypes.user.name,
     }).then(
       (_) {
+        print(state);
         if (state is ChatLoaded) {
           final message = MessageUser(content: content);
           emit(ChatLoaded(

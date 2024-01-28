@@ -41,6 +41,7 @@ dependencies:
   equatable: ^2.0.5
   uuid: ^4.2.2
   http: ^1.1.0
+  adaptive_theme: ^3.5.0
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +68,9 @@ flutter:
   assets:
     - assets/chat_gpt_logo.png
     - assets/profile_pic.jpg
+    - assets/profile_photo.jpg
+    - assets/logo_supermind.jpeg
+    - assets/icons/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

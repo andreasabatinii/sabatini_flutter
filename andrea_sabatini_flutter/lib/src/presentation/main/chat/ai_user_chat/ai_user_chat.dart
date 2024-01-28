@@ -1,7 +1,7 @@
 import 'package:andrea_sabatini_flutter/src/data/models/message.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
-import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/chat_section/messages/message_ai.dart';
-import 'package:andrea_sabatini_flutter/src/presentation/home/widgets/chat_section/messages/message_user.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_chat_component.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/user_chat_component.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +12,7 @@ class AiUserChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChatCubit()..loadMessages(),
+      create: (context) => ChatCubitMain()..loadMessages(),
       child: const _ChatSection(),
     );
   }
@@ -23,7 +23,7 @@ class _ChatSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ChatCubit, ChatState>(
+    return BlocBuilder<ChatCubitMain, ChatState>(
       builder: (context, state) {
         if (state is ChatLoading) {
           return const Center(
@@ -36,17 +36,16 @@ class _ChatSection extends StatelessWidget {
           );
         }
         if (state is ChatLoaded) {
-          state.messages;
           return Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: ListView(
-                reverse: true,
+                //reverse: true,
                 children: [
                   for (final message in state.messages)
                     message is MessageAi
-                        ? AiChatComponent(label: message.content)
-                        : UserChatComponent(label: message.content)
+                        ? AiChatComponent(response: message.content)
+                        : UserChatComponent(inputtext: message.content)
                 ],
               ),
             ),

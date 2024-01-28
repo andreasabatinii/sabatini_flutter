@@ -1,8 +1,9 @@
-import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/components/chat_options.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/folders%20components/chat_folder.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/options%20components/chat_options.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/user%20settings/user_settings.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SidebarContent extends StatelessWidget {
   const SidebarContent({super.key});
@@ -11,7 +12,7 @@ class SidebarContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(15),
-      color: const Color(0xFF101010),
+      color: Palette.white,
       child: Column(
         children: [
           Row(
@@ -20,19 +21,12 @@ class SidebarContent extends StatelessWidget {
                 height: 35,
                 width: 35,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFFFFFFF),
+                  color: Palette.yellow,
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
               const SizedBox(width: 14),
-              Text(
-                'SuperMind',
-                style: GoogleFonts.sora(
-                  color: const Color(0xFFFFFFFF),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-              )
+              const H1Title('Supermind')
             ],
           ),
           const SizedBox(
@@ -45,12 +39,12 @@ class SidebarContent extends StatelessWidget {
           Container(
             height: 1,
             width: double.infinity,
-            color: const Color.fromRGBO(255, 255, 255, 0.65),
+            color: Palette.gray,
           ),
           const SizedBox(height: 16),
           const ChatFolder(),
           const SizedBox(height: 0),
-          const UserSettings()
+          const UserSettingsContainer()
         ],
       ),
     );

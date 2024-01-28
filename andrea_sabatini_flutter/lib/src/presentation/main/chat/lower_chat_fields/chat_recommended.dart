@@ -9,10 +9,11 @@ class ChatRecommended extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       double rowWidth = MediaQuery.of(context).size.width * 0.6;
 
-      // Se la larghezza dello schermo è inferiore a 800 px, imposta la larghezza al 100%
-      if (constraints.maxWidth < 800) {
+      /*
+      if (constraints.maxWidth < 400) {
         rowWidth = constraints.maxWidth;
       }
+      */
       return Container(
         constraints: BoxConstraints(maxWidth: rowWidth),
         child: const Column(
@@ -24,12 +25,12 @@ class ChatRecommended extends StatelessWidget {
                 //SizedBox(width: 10),
                 RecommendedComponent(
                   suggestedinput: 'Code genarator',
-                  iconsuggested: Icons.code,
+                  iconpath: 'assets/icons/laptop-code.png',
                 ),
                 SizedBox(width: 10),
                 RecommendedComponent(
                   suggestedinput: 'Summary',
-                  iconsuggested: Icons.note_add_outlined,
+                  iconpath: 'assets/icons/text-box.png',
                 ),
               ],
             ),
@@ -39,12 +40,12 @@ class ChatRecommended extends StatelessWidget {
               children: [
                 RecommendedComponent(
                   suggestedinput: 'Video generator',
-                  iconsuggested: Icons.play_circle_outlined,
+                  iconpath: 'assets/icons/camera-movie.png',
                 ),
                 SizedBox(width: 10),
                 RecommendedComponent(
                   suggestedinput: 'Audio genarator',
-                  iconsuggested: Icons.graphic_eq,
+                  iconpath: 'assets/icons/volume-down.png',
                 ),
               ],
             )

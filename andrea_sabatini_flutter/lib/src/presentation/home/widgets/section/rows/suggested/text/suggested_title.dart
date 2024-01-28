@@ -11,7 +11,7 @@ class SuggestedTitle extends StatelessWidget {
     return Text(
       title,
       style: GoogleFonts.sora(
-        color: const Color(0xFF101010),
+        color: const Palette.black,
         fontSize: 14,
         fontWeight: FontWeight.w500,
       ),

@@ -1,11 +1,13 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserModeComponent extends StatelessWidget {
   const UserModeComponent(
-      {super.key, required this.usermode, required this.usermodeicon});
+      {super.key, required this.usermode, required this.iconpath});
 
-  final IconData usermodeicon;
+  final iconpath;
   final String usermode;
 
   @override
@@ -15,10 +17,10 @@ class UserModeComponent extends StatelessWidget {
         //alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          color: const Color(0xFF101010),
+          color: Palette.black,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: const Color(0xFFFFFFFF),
+            color: Palette.lightblue,
             width: 1,
           ),
         ),
@@ -26,22 +28,15 @@ class UserModeComponent extends StatelessWidget {
           //crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              usermodeicon,
-              color: const Color(0xFFFFFFFF),
-              size: 21,
-              weight: 100,
-              grade: -25,
-              opticalSize: 20.0,
-              fill: 0,
+            SizedBox(
+              height: IconHeight.medium,
+              child: Image.asset(
+                iconpath,
+                color: Palette.white,
+              ),
             ),
-            const SizedBox(width: 8),
-            Text(usermode,
-                style: GoogleFonts.sora(
-                  color: const Color(0xFFFFFFFF),
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                )),
+            const SizedBox(width: Grid.xssmall),
+            SmallParagraph(usermode, textcolor: Palette.white)
           ],
         ),
       ),

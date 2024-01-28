@@ -32,7 +32,7 @@ class MiddleRow extends StatelessWidget {
             ),
             Text('How can I help you today?',
                 style: GoogleFonts.sora(
-                    color: const Color(0xFF101010),
+                    color: const Palette.black,
                     fontSize: 24,
                     fontWeight: FontWeight.w600)),
           ],

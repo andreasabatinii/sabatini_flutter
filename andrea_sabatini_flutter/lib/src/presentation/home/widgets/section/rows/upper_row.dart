@@ -12,7 +12,7 @@ class UpperRow extends StatelessWidget {
           margin: const EdgeInsets.only(right: 4),
           child: Text('ChatGPT',
               style: GoogleFonts.sora(
-                  color: const Color(0xFF101010),
+                  color: const Palette.black,
                   fontSize: 18,
                   fontWeight: FontWeight.w600)),
         ),

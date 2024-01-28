@@ -1,4 +1,7 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/responsive/menu_icons_component.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class TightSidebar extends StatelessWidget {
@@ -10,59 +13,76 @@ class TightSidebar extends StatelessWidget {
         ? Axis.horizontal
         : Axis.vertical;
 
-    return Flex(
-      direction: directionmenu,
-      children: [
-        Container(
-          height: 35,
-          width: 35,
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(6),
-          ),
-        ),
-        const SizedBox(height: 10),
-        if (MediaQuery.sizeOf(context).width <= 750)
-          GestureDetector(
-            onTap: () {
-              if (!Scaffold.of(context).isDrawerOpen) {
-                Scaffold.of(context).openDrawer();
-              }
-            },
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              margin: const EdgeInsets.only(bottom: 8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(6),
-                gradient: const LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [Color(0xFF212121), Color(0xFF3E3E3E)],
-                ),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0xFFFFFFFF), // Colore dell'ombra
-                    spreadRadius: 0, // Raggio di diffusione
-                    blurRadius: 0, // Raggio di sfocatura
-                    offset: Offset(0, 1), // Offset (spostamento) dell'ombra
-                  ),
-                ],
-              ),
-              child: const Icon(Icons.double_arrow_outlined,
-                  color: Color(0xFFFFFFFF), size: 16),
+    return Container(
+      padding: const EdgeInsets.all(20),
+      color: Palette.white,
+      child: Flex(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        direction: directionmenu,
+        children: [
+          Container(
+            height: 30,
+            width: 30,
+            decoration: BoxDecoration(
+              borderRadius: br6,
             ),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.asset(
+                  'assets/logo_supermind.jpeg', // Sostituisci con il percorso corretto del tuo file immagine
+                  fit: BoxFit
+                      .cover, // Puoi personalizzare la modalità di adattamento dell'immagine
+                )),
           ),
-        const SizedBox(height: 10),
-        Flex(
-          direction: directionmenu,
-          children: const [
-            MenuIconComponent(menuiconresponsive: Icons.chat_outlined),
-            MenuIconComponent(menuiconresponsive: Icons.star_border_outlined),
-            MenuIconComponent(menuiconresponsive: Icons.search),
-            MenuIconComponent(menuiconresponsive: Icons.settings_outlined)
-          ],
-        )
-      ],
+          //const SizedBox(height: Grid.small),
+          //const SizedBox(height: Grid.small),
+          const Spacer(),
+          if (MediaQuery.sizeOf(context).width <= 800)
+            GestureDetector(
+              onTap: () {
+                if (!Scaffold.of(context).isDrawerOpen) {
+                  Scaffold.of(context).openDrawer();
+                }
+              },
+              child: Container(
+                  padding: const EdgeInsets.all(8),
+                  //margin: const EdgeInsets.only(bottom: 8),
+                  decoration: BoxDecoration(
+                    color: Palette.black,
+                    borderRadius: br6,
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Palette.lightblue, // Colore dell'ombra
+                        spreadRadius: 0, // Raggio di diffusione
+                        blurRadius: 0, // Raggio di sfocatura
+                        offset: Offset(0, 1), // Offset (spostamento) dell'ombra
+                      ),
+                    ],
+                  ),
+                  child: SizedBox(
+                    height: IconHeight.xssmall,
+                    child: Image.asset(
+                      'assets/icons/angle-double-right.png',
+                      color: Palette.white,
+                    ),
+                  )),
+            ),
+          //const SizedBox(height: 10),
+          if (MediaQuery.of(context).size.width >= 500) const Spacer(),
+          if (MediaQuery.of(context).size.width >= 500)
+            const SizedBox(height: 10),
+          if (MediaQuery.of(context).size.width >= 500)
+            Flex(
+              direction: directionmenu,
+              children: const [
+                MenuIconComponent(iconpath: 'assets/icons/messages.png'),
+                MenuIconComponent(iconpath: 'assets/icons/circle-star.png'),
+                MenuIconComponent(iconpath: 'assets/icons/discover.png'),
+                MenuIconComponent(iconpath: 'assets/icons/api.png')
+              ],
+            )
+        ],
+      ),
     );
   }
 }

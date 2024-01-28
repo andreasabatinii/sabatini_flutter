@@ -1,5 +1,8 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FolderActionsComponent extends StatelessWidget {
   const FolderActionsComponent(
@@ -12,15 +15,10 @@ class FolderActionsComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFF212121), Color(0xFF3E3E3E)],
-        ),
-        //boxShadow: const [BoxShadow(color: Color(0xFFFFFFFF), spreadRadius: 0, blurRadius: 0, offset: Offset(-1, 0),),]
-      ),
+      decoration: BoxDecoration(borderRadius: br8, color: Palette.black
+          //gradient: Palette.greengradient
+          //boxShadow: const [BoxShadow(color: Color(0xFFFFFFFF), spreadRadius: 0, blurRadius: 0, offset: Offset(-1, 0),),]
+          ),
       child: Row(
         children: [
           Icon(
@@ -32,14 +30,10 @@ class FolderActionsComponent extends StatelessWidget {
             opticalSize: 20.0,
             fill: 0,
           ),
-          const SizedBox(width: 12),
-          Text(
+          const SizedBox(width: Grid.small),
+          Paragraph(
             folderaction,
-            style: GoogleFonts.sora(
-              color: const Color(0xFFFFFFFF),
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-            ),
+            textcolor: Palette.white,
           )
         ],
       ),

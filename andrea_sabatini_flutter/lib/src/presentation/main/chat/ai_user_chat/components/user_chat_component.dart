@@ -1,3 +1,4 @@
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,18 +15,23 @@ class UserChatComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              decoration: BoxDecoration(
-                color: const Color(0xFF101010),
-                borderRadius: BorderRadius.circular(6),
-              ),
-              child: Text(inputtext,
-                  style: GoogleFonts.sora(
-                    color: const Color(0xFFFFFFFF),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ))),
+          Expanded(
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                decoration: BoxDecoration(
+                  color: Palette.black,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Expanded(
+                  child: Text(inputtext,
+                      style: GoogleFonts.sora(
+                        color: const Color(0xFFFFFFFF),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                      )),
+                )),
+          ),
           const SizedBox(width: 10),
           Container(
             width: 30,
