@@ -35,7 +35,7 @@ class ChatCubitMain extends Cubit<ChatState> {
           {
             "role": "system",
             "content":
-                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response"
+                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response. You only respond in serbian"
           }, //definisco che tipo di bot è
           {"role": "user", "content": content}
         ]

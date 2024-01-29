@@ -1,6 +1,6 @@
 //import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/blocs/chat_cubit_main.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +17,7 @@ class _TextfieldChatState extends State<TextfieldChat> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         double rowWidth = MediaQuery.of(context).size.width * 0.6;
@@ -36,9 +37,9 @@ class _TextfieldChatState extends State<TextfieldChat> {
                       const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: const Color(0xFFFFFFFF),
+                    color: theme.whiteBoxColor,
                     border: Border.all(
-                      color: Palette.black,
+                      color: theme.borderColor,
                       width: 1,
                     ),
                   ),
@@ -47,11 +48,11 @@ class _TextfieldChatState extends State<TextfieldChat> {
                     decoration: InputDecoration(
                       hintText: 'Message SuperMind...',
                       hintStyle: GoogleFonts.sora(
-                        color: const Color(0xFFAEAEAE),
+                        color: theme.blackBoxColor,
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: Palette.white,
+                      fillColor: theme.whiteBoxColor,
                       border: InputBorder.none,
                     ),
                     onSubmitted: (messages) {
@@ -75,7 +76,7 @@ class _TextfieldChatState extends State<TextfieldChat> {
                   //context.read<ChatCubitMain>().insert(sendMessage.text);
                 },
                 icon: const Icon(Icons.arrow_upward),
-                color: Palette.black,
+                color: theme.blackBoxColor,
                 iconSize: 24,
               ),
             ],

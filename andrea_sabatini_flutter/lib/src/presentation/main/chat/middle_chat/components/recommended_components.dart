@@ -1,7 +1,7 @@
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class RecommendedComponent extends StatelessWidget {
@@ -13,6 +13,7 @@ class RecommendedComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Expanded(
       child: Container(
           //width: 250,
@@ -20,13 +21,13 @@ class RecommendedComponent extends StatelessWidget {
           padding: const EdgeInsets.all(Grid.padmedium),
           decoration: BoxDecoration(
             borderRadius: br8,
-            color: const Color(0xFFFFFFFF),
-            boxShadow: const [
+            color: theme.whiteBoxColor,
+            boxShadow: [
               BoxShadow(
-                color: Palette.black, // Colore dell'ombra
+                color: theme.borderColor, // Colore dell'ombra
                 spreadRadius: 0, // Raggio di diffusione
                 blurRadius: 0, // Raggio di sfocatura
-                offset: Offset(-1, 1), // Offset (spostamento) dell'ombra
+                offset: const Offset(-1, 1), // Offset (spostamento) dell'ombra
               ),
             ],
           ),
@@ -34,10 +35,13 @@ class RecommendedComponent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Paragraph(suggestedinput),
-              const SizedBox(width: 10),
+              const SizedBox(width: Grid.small),
               SizedBox(
                 height: IconHeight.small,
-                child: Image.asset(iconpath),
+                child: Image.asset(
+                  iconpath,
+                  color: theme.blackBoxColor,
+                ),
               )
             ],
           )),

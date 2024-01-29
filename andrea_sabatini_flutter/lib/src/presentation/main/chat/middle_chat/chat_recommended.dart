@@ -1,4 +1,4 @@
-import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/component/recommended_components.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/middle_chat/components/recommended_components.dart';
 import 'package:flutter/material.dart';
 
 class ChatRecommended extends StatelessWidget {

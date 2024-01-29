@@ -2,7 +2,6 @@ import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.d
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class UserChatComponent extends StatelessWidget {
@@ -28,9 +27,8 @@ class UserChatComponent extends StatelessWidget {
                   borderRadius: br6,
                 ),
                 child: Expanded(
-                    child: Paragraph(
+                    child: WhiteParagraph(
                   inputtext,
-                  textcolor: Palette.white,
                   textalignment: TextAlign.right,
                 ))),
           ),
@@ -41,7 +39,7 @@ class UserChatComponent extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: br6,
               border: Border.all(
-                color: Palette.black, // colore del bordo
+                color: theme.borderColor, // colore del bordo
                 width: 1.0, // spessore del bordo
               ),
             ),

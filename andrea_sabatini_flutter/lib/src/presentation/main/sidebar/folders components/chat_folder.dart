@@ -11,6 +11,7 @@ class ChatFolder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView(
+        padding: const EdgeInsets.symmetric(vertical: Grid.medium),
         children: const [
           FolderActionsComponent(
               folderaction: 'Chat folders',

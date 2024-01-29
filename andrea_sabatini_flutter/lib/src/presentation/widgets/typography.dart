@@ -39,6 +39,23 @@ class H1Title extends StatelessWidget {
   }
 }
 
+class H2Title extends StatelessWidget {
+  const H2Title(this.paragraph, {super.key, this.textcolor});
+  final String paragraph;
+  //creiamo un parametro OPZIONALE
+  final Color? textcolor;
+
+  @override
+  Widget build(BuildContext context) {
+    //prendere un tema in qualsiasi parte dell'applicazione
+    final theme = getTheme(context);
+    return Text(paragraph,
+        style: GoogleFonts.sora(
+          textStyle: theme.h2TextStyle.copyWith(color: textcolor),
+        ));
+  }
+}
+
 class H3Title extends StatelessWidget {
   const H3Title(this.paragraph,
       {super.key, this.textcolor, this.textalignment});
@@ -93,6 +110,26 @@ class Paragraph extends StatelessWidget {
     return Text(paragraph,
         style: GoogleFonts.sora(
           textStyle: theme.paragraphTextStyle.copyWith(color: textcolor),
+        ),
+        textAlign: textalignment);
+  }
+}
+
+class WhiteParagraph extends StatelessWidget {
+  const WhiteParagraph(this.paragraph,
+      {super.key, this.textcolor, this.textalignment});
+  final String paragraph;
+  //creiamo un parametro OPZIONALE
+  final Color? textcolor;
+  final TextAlign? textalignment;
+
+  @override
+  Widget build(BuildContext context) {
+    //prendere un tema in qualsiasi parte dell'applicazione
+    final theme = getTheme(context);
+    return Text(paragraph,
+        style: GoogleFonts.sora(
+          textStyle: theme.whiteParagraphTextStyle.copyWith(color: textcolor),
         ),
         textAlign: textalignment);
   }

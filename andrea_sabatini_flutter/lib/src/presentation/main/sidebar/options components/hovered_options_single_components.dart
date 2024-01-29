@@ -1,4 +1,5 @@
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
 import 'package:andrea_sabatini_flutter/src/theme.dart';
@@ -31,6 +32,7 @@ class _HoveredChatOptionsComponentsState
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return MouseRegion(
       onEnter: (_) => setState(() {
         isHovered = true;
@@ -50,12 +52,14 @@ class _HoveredChatOptionsComponentsState
           decoration: BoxDecoration(
               borderRadius: br8,
               color: widget.isSelected ? Palette.black : Palette.lightgray,
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
-                  color: Palette.black, // Colore dell'ombra
+                  color: widget.isSelected
+                      ? Palette.lightblue
+                      : theme.borderColor, // Colore dell'ombra
                   spreadRadius: 0, // Raggio di diffusione
                   blurRadius: 0, // Raggio di sfocatura
-                  offset: Offset(0, 1), // Offset (spostamento) dell'ombra
+                  offset: const Offset(0, 1), // Offset (spostamento) dell'ombra
                 ),
               ]),
           child: Row(

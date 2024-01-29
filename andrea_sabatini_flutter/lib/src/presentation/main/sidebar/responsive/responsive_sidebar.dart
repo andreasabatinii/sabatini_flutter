@@ -1,5 +1,6 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/responsive/menu_icons_component.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +10,14 @@ class TightSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     Axis directionmenu = MediaQuery.of(context).size.width < 500
         ? Axis.horizontal
         : Axis.vertical;
 
     return Container(
       padding: const EdgeInsets.all(20),
-      color: Palette.white,
+      color: theme.whiteBoxColor,
       child: Flex(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         direction: directionmenu,
@@ -24,8 +26,8 @@ class TightSidebar extends StatelessWidget {
             height: 30,
             width: 30,
             decoration: BoxDecoration(
-              borderRadius: br6,
-            ),
+                borderRadius: br6,
+                border: Border.all(color: theme.borderColor, width: 1)),
             child: ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Image.asset(
@@ -48,7 +50,7 @@ class TightSidebar extends StatelessWidget {
                   padding: const EdgeInsets.all(8),
                   //margin: const EdgeInsets.only(bottom: 8),
                   decoration: BoxDecoration(
-                    color: Palette.black,
+                    color: theme.blackBoxColor,
                     borderRadius: br6,
                     boxShadow: const [
                       BoxShadow(
@@ -63,7 +65,7 @@ class TightSidebar extends StatelessWidget {
                     height: IconHeight.xssmall,
                     child: Image.asset(
                       'assets/icons/angle-double-right.png',
-                      color: Palette.white,
+                      color: theme.whiteBoxColor,
                     ),
                   )),
             ),

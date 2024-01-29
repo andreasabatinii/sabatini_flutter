@@ -5,6 +5,7 @@ import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.d
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatSidebar extends StatelessWidget {
@@ -21,11 +22,11 @@ class ChatSidebar extends StatelessWidget {
               height: 30,
               width: 30,
               decoration: BoxDecoration(
-                //color: Palette.yellow,
-                borderRadius: br8,
-              ),
+                  //color: Palette.yellow,
+                  borderRadius: br6,
+                  border: Border.all(color: Palette.white, width: 1)),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(6),
+                borderRadius: br6,
                 child: Image.asset(
                   'assets/logo_supermind.jpeg', // Sostituisci con il percorso corretto del tuo file immagine
                   fit: BoxFit
@@ -34,9 +35,9 @@ class ChatSidebar extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 14),
-            const H1Title(
+            const H2Title(
               'Supermind',
-              //textcolo: theme.h1TextStyle,
+              //textcolo: theme.h2TextStyle,
             )
           ],
         ),
@@ -50,7 +51,7 @@ class ChatSidebar extends StatelessWidget {
           color: theme.blackBoxColor,
         ),
         const SizedBox(
-          height: Grid.medium,
+          height: Grid.small,
         ),
         const ChatOptions(),
         const SizedBox(

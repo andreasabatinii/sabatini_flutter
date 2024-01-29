@@ -7,7 +7,7 @@ class Palette {
   /// Brand gradient colors
   static const black = Color(0xFF101010);
   static const black15 = Color.fromRGBO(0, 0, 0, 0.15);
-  static const darkgray = Color(0xFF3E3E3E);
+  static const darkgray = Color(0xFF313131);
   static const gray = Color(0xFFAEAEAE);
   static const lightgray = Color(0xFFF5F5F5);
   static const white = Color(0xFFFFFFFF);
@@ -25,10 +25,24 @@ class Palette {
   static const greengradient = LinearGradient(
     colors: [Palette.lightblue, Palette.green],
   );
+  static const pinkgradient = LinearGradient(
+    colors: [Palette.pink, Palette.lightblue],
+  );
+  static const whitegradient = LinearGradient(
+    colors: [Palette.white, Palette.white],
+  );
+  static const graygradient = LinearGradient(
+    colors: [Palette.black, Color.fromARGB(255, 39, 39, 39)],
+  );
 }
 
-//definisco le variabili di testo
 const h1TextStyle = TextStyle(
+  fontSize: 36,
+  fontWeight: FontWeight.w700,
+  height: null,
+);
+//definisco le variabili di testo
+const h2TextStyle = TextStyle(
   fontSize: 21,
   fontWeight: FontWeight.w700,
   height: null,
@@ -51,6 +65,12 @@ const boldparagraphTextStyle = TextStyle(
   height: null,
 );
 const paragraphTextStyle = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w400,
+  letterSpacing: 0,
+  height: null,
+);
+const whiteParagraphTextStyle = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w400,
   letterSpacing: 0,
@@ -83,11 +103,13 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.titlesTextStyle,
     //usato per Testi "grandi"
     required this.h1TextStyle,
+    required this.h2TextStyle,
     //usato per CTA
     required this.h3TextStyle,
     //usato per elementi di testo normali
     required this.boldparagraphTextStyle,
     required this.paragraphTextStyle,
+    required this.whiteParagraphTextStyle,
     //usato per elementi di testo meno importanti
     required this.smallParagraphTextStyle,
     //usato per elementi di testo molto piccoli, per i dettagli
@@ -97,7 +119,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.whiteBoxColor,
   });
 
-  final Color bgPrimary;
+  final Gradient bgPrimary;
   final Color bgSecondary;
   final Color bgTertiary;
   final Color borderColor;
@@ -108,15 +130,17 @@ class AppTheme extends ThemeExtension<AppTheme> {
 
   final TextStyle titlesTextStyle;
   final TextStyle h1TextStyle;
+  final TextStyle h2TextStyle;
   final TextStyle h3TextStyle;
   final TextStyle boldparagraphTextStyle;
   final TextStyle paragraphTextStyle;
+  final TextStyle whiteParagraphTextStyle;
   final TextStyle smallParagraphTextStyle;
   final TextStyle detailTextStyle;
 
   @override
   AppTheme copyWith({
-    Color? bgPrimary,
+    Gradient? bgPrimary,
     Color? bgSecondary,
     Color? bgTertiary,
     Color? borderColor,
@@ -125,9 +149,12 @@ class AppTheme extends ThemeExtension<AppTheme> {
     Gradient? buttonColor,
     TextStyle? titleTextStyle,
     TextStyle? h1TextStyle,
+    TextStyle? h2TextStyle,
     TextStyle? h3TextStyle,
     TextStyle? boldparagraphTextStyle,
     TextStyle? paragraphTextStyle,
+    //Textstyle? whiteParagraphTextStyle,
+    TextStyle? whiteParagraphTextStyle,
     TextStyle? smallParagraphTextStyle,
     TextStyle? detailTextStyle,
   }) =>
@@ -141,10 +168,13 @@ class AppTheme extends ThemeExtension<AppTheme> {
         buttonColor: buttonColor ?? this.buttonColor,
         titlesTextStyle: titleTextStyle ?? titlesTextStyle,
         h1TextStyle: h1TextStyle ?? this.h1TextStyle,
+        h2TextStyle: h2TextStyle ?? this.h2TextStyle,
         h3TextStyle: h3TextStyle ?? this.h3TextStyle,
         boldparagraphTextStyle:
             boldparagraphTextStyle ?? this.boldparagraphTextStyle,
         paragraphTextStyle: paragraphTextStyle ?? this.paragraphTextStyle,
+        whiteParagraphTextStyle:
+            whiteParagraphTextStyle ?? this.whiteParagraphTextStyle,
         smallParagraphTextStyle:
             smallParagraphTextStyle ?? this.smallParagraphTextStyle,
         detailTextStyle: detailTextStyle ?? this.detailTextStyle,
@@ -156,7 +186,8 @@ class AppTheme extends ThemeExtension<AppTheme> {
       return this;
     }
     return AppTheme(
-      bgPrimary: Color.lerp(bgPrimary, other.bgPrimary, t) ?? Colors.white,
+      bgPrimary:
+          Gradient.lerp(bgPrimary, other.bgPrimary, t) ?? Palette.whitegradient,
       bgSecondary:
           Color.lerp(bgSecondary, other.bgSecondary, t) ?? Palette.lightgray,
       bgTertiary: Color.lerp(bgTertiary, other.bgTertiary, t) ?? Palette.black,
@@ -170,7 +201,9 @@ class AppTheme extends ThemeExtension<AppTheme> {
           Palette.greengradient,
       h1TextStyle: TextStyle.lerp(h1TextStyle, other.h1TextStyle, t) ??
           const TextStyle(),
-      titlesTextStyle: TextStyle.lerp(h1TextStyle, other.h1TextStyle, t) ??
+      h2TextStyle: TextStyle.lerp(h2TextStyle, other.h2TextStyle, t) ??
+          const TextStyle(),
+      titlesTextStyle: TextStyle.lerp(h2TextStyle, other.h2TextStyle, t) ??
           const TextStyle(),
       h3TextStyle: TextStyle.lerp(h3TextStyle, other.h3TextStyle, t) ??
           const TextStyle(),
@@ -180,6 +213,9 @@ class AppTheme extends ThemeExtension<AppTheme> {
       paragraphTextStyle:
           TextStyle.lerp(paragraphTextStyle, other.paragraphTextStyle, t) ??
               const TextStyle(),
+      whiteParagraphTextStyle: TextStyle.lerp(
+              whiteParagraphTextStyle, other.whiteParagraphTextStyle, t) ??
+          const TextStyle(),
       smallParagraphTextStyle: TextStyle.lerp(
               smallParagraphTextStyle, other.smallParagraphTextStyle, t) ??
           const TextStyle(),
@@ -191,7 +227,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
 }
 
 final lightTheme = AppTheme(
-  bgPrimary: Palette.white,
+  bgPrimary: Palette.whitegradient,
   bgSecondary: Palette.lightgray,
   bgTertiary: Palette.black,
   borderColor: Palette.black,
@@ -204,6 +240,9 @@ final lightTheme = AppTheme(
   h1TextStyle: h1TextStyle.copyWith(
     color: Palette.black,
   ),
+  h2TextStyle: h2TextStyle.copyWith(
+    color: Palette.black,
+  ),
   h3TextStyle: h3TextStyle.copyWith(
     color: const Color(0xFF020202),
   ),
@@ -212,6 +251,9 @@ final lightTheme = AppTheme(
   ),
   paragraphTextStyle: paragraphTextStyle.copyWith(
     color: const Color(0xFF020202),
+  ),
+  whiteParagraphTextStyle: whiteParagraphTextStyle.copyWith(
+    color: Palette.white,
   ),
   smallParagraphTextStyle: smallParagraphTextStyle.copyWith(
     color: const Color(0xFF020202),
@@ -222,13 +264,13 @@ final lightTheme = AppTheme(
 );
 
 final darkTheme = AppTheme(
-  bgPrimary: Palette.graybg,
-  bgSecondary: Palette.black,
+  bgPrimary: Palette.graygradient,
+  bgSecondary: Palette.darkgray,
   bgTertiary: Palette.white,
   borderColor: Palette.white,
   blackBoxColor: Palette.white,
   whiteBoxColor: Palette.black,
-  buttonColor: Palette.greengradient,
+  buttonColor: Palette.pinkgradient,
   titlesTextStyle: titlesTextStyle.copyWith(
     color: Palette.white,
   ),
@@ -236,14 +278,20 @@ final darkTheme = AppTheme(
   h1TextStyle: h1TextStyle.copyWith(
     color: Palette.white,
   ),
+  h2TextStyle: h2TextStyle.copyWith(
+    color: Palette.white,
+  ),
   h3TextStyle: h3TextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
   boldparagraphTextStyle: boldparagraphTextStyle.copyWith(
     color: Palette.black,
   ),
   paragraphTextStyle: paragraphTextStyle.copyWith(
     color: Palette.white,
+  ),
+  whiteParagraphTextStyle: whiteParagraphTextStyle.copyWith(
+    color: Palette.black,
   ),
   smallParagraphTextStyle: smallParagraphTextStyle.copyWith(
     color: Palette.white,

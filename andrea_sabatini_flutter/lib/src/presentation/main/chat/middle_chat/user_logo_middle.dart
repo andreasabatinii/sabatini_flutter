@@ -1,6 +1,6 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/middle_chat/components/square_profile.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class MiddleRowChat extends StatelessWidget {
@@ -14,20 +14,22 @@ class MiddleRowChat extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SquareProfile(
-              boxcolor: Palette.lightblue,
+              //boxcolor: Palette.lightblue,
               imagepath: 'assets/profile_photo.jpg',
             ),
-            SizedBox(width: 20),
+            SizedBox(width: Grid.medium),
             Icon(Icons.close),
-            SizedBox(width: 20),
+            SizedBox(width: Grid.medium),
             SquareProfile(
-              boxcolor: Palette.yellow,
+              //boxcolor: Palette.yellow,
               imagepath: 'assets/logo_supermind.jpeg',
             )
           ],
         ),
-        SizedBox(height: 18),
-        H3Title('How can we team up today Andrea?')
+        SizedBox(height: Grid.medium),
+        H3Title(
+          'How can we team up today Andrea?',
+        )
       ],
     );
   }

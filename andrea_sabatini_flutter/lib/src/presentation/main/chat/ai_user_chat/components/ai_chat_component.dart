@@ -27,7 +27,7 @@ class AiChatComponent extends StatelessWidget {
               //color: const Color(0xFFFEA82F),
               borderRadius: br6,
               border: Border.all(
-                color: Palette.black,
+                color: theme.borderColor,
                 width: 1.0,
               ),
             ),
@@ -49,10 +49,10 @@ class AiChatComponent extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: Grid.padmedium, vertical: Grid.padmedium),
                     decoration: BoxDecoration(
-                      //color: const Palette.black,
+                      color: theme.whiteBoxColor,
                       borderRadius: br6,
                       border: Border.all(
-                        color: theme.blackBoxColor,
+                        color: theme.borderColor,
                         width: 1,
                       ),
                     ),

@@ -48,7 +48,9 @@ class MainPage extends StatelessWidget {
                   Container(
                       width: 300,
                       padding: const EdgeInsets.all(Grid.paddingdesktop),
-                      color: theme.bgPrimary,
+                      decoration: BoxDecoration(
+                        gradient: theme.bgPrimary,
+                      ),
                       child: const ChatSidebar()),
                   const SizedBox(
                     width: 1,
