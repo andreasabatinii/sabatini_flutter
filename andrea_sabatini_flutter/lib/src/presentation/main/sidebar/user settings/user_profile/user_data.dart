@@ -1,7 +1,7 @@
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class UserData extends StatelessWidget {
@@ -17,6 +17,7 @@ class UserData extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,7 +29,7 @@ class UserData extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   border: Border.all(
-                    color: Palette.black,
+                    color: theme.borderColor,
                     width: 1,
                   )
                   //color: Palette.lightblue,
@@ -46,9 +47,9 @@ class UserData extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BoldParagraph(
+                Paragraph(
                   username,
-                  textcolor: Palette.black,
+                  //textcolor: Palette.black,
                 ),
                 const SizedBox(height: 4),
                 SmallParagraph(
@@ -62,12 +63,12 @@ class UserData extends StatelessWidget {
         Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: Palette.black,
+              color: theme.blackBoxColor,
               borderRadius: br4,
             ),
-            child: SmallParagraph(
+            child: DetailsText(
               planstatus,
-              textcolor: Palette.white,
+              //textcolor: Palette.white,
             ))
       ],
     );

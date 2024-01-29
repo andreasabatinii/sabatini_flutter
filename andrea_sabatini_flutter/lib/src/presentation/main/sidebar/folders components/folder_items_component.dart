@@ -1,7 +1,7 @@
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,6 +18,7 @@ class FolderItemsComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Column(
       children: [
         Container(
@@ -28,13 +29,13 @@ class FolderItemsComponents extends StatelessWidget {
             bottom: Grid.small,
           ),
           decoration: BoxDecoration(
-            borderRadius: br8, color: Palette.lightgray,
-            boxShadow: const [
+            borderRadius: br8, color: theme.whiteBoxColor,
+            boxShadow: [
               BoxShadow(
-                color: Palette.black, // Colore dell'ombra
+                color: theme.borderColor, // Colore dell'ombra
                 spreadRadius: 0, // Raggio di diffusione
                 blurRadius: 0, // Raggio di sfocatura
-                offset: Offset(0, 1), // Offset (spostamento) dell'ombra
+                offset: const Offset(0, 1), // Offset (spostamento) dell'ombra
               ),
             ],
             //boxShadow: const [ BoxShadow( color: Color(0xFFFFFFFF), spreadRadius: 0, blurRadius: 0, offset: Offset(-1, 0),),]

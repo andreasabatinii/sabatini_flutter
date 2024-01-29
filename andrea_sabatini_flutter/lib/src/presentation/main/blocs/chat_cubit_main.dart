@@ -13,9 +13,10 @@ class ChatCubitMain extends Cubit<ChatState> {
   void loadMessages() {
     emit(const ChatLoading()); //carica uno stato della pagina
     Supabase.instance.client.from('messages').select().then(
-          (value) => emit(
+          (messages) => emit(
             ChatLoaded(
-                messages: value.map((e) => Message.fromJson(e)).toList()),
+                messages: messages.map((e) => Message.fromJson(e)).toList(),
+                messageLoading: false),
           ),
           onError: (error) => emit(
             ChatError(error: error.toString()),
@@ -27,17 +28,14 @@ class ChatCubitMain extends Cubit<ChatState> {
     http
         .post(
       Uri.parse('https://api.openai.com/v1/chat/completions'),
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer //"
-      },
+      headers: {"Content-Type": "application/json", "Authorization": ""},
       body: jsonEncode({
         "model": "gpt-3.5-turbo",
         "messages": [
           {
             "role": "system",
             "content":
-                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response. When you are asked about code and solving problems, your responses are very clear and long"
+                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response"
           }, //definisco che tipo di bot è
           {"role": "user", "content": content}
         ]
@@ -56,11 +54,10 @@ class ChatCubitMain extends Cubit<ChatState> {
           }).then(
             (_) {
               if (state is ChatLoaded) {
-                final message = MessageUser(content: content);
+                final message = MessageAi(content: content);
                 emit(ChatLoaded(
-                  messages: [...(state as ChatLoaded).messages, message],
-                  //messageLoading: false
-                ));
+                    messages: [...(state as ChatLoaded).messages, message],
+                    messageLoading: false));
               }
             },
             onError: (error) => emit(
@@ -90,9 +87,8 @@ class ChatCubitMain extends Cubit<ChatState> {
         if (state is ChatLoaded) {
           final message = MessageUser(content: content);
           emit(ChatLoaded(
-            messages: [...(state as ChatLoaded).messages, message],
-            //messageLoading: true
-          ));
+              messages: [...(state as ChatLoaded).messages, message],
+              messageLoading: true));
           sendMessageToChatgtp(content);
         }
       },
@@ -122,13 +118,10 @@ class ChatLoading extends ChatState {
 }
 
 class ChatLoaded extends ChatState {
-  const ChatLoaded({
-    required this.messages,
-    //required this.messageLoading
-  });
+  const ChatLoaded({required this.messages, required this.messageLoading});
 
   final List<Message> messages;
-  //final bool messageLoading;
+  final bool messageLoading;
 
   @override
   List<Object?> get props => [messages];

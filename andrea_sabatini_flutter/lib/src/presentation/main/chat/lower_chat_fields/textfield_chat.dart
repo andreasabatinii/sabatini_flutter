@@ -1,4 +1,5 @@
-import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+//import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/blocs/chat_cubit_main.dart';
 import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +13,7 @@ class TextfieldChat extends StatefulWidget {
 }
 
 class _TextfieldChatState extends State<TextfieldChat> {
-  final controller = TextEditingController();
+  TextEditingController sendMessage = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class _TextfieldChatState extends State<TextfieldChat> {
                     ),
                   ),
                   child: TextField(
-                    controller: controller,
+                    controller: sendMessage,
                     decoration: InputDecoration(
                       hintText: 'Message SuperMind...',
                       hintStyle: GoogleFonts.sora(
@@ -50,11 +51,15 @@ class _TextfieldChatState extends State<TextfieldChat> {
                         fontSize: 14,
                       ),
                       filled: true,
-                      fillColor: const Color(0xFFFFFFFF),
+                      fillColor: Palette.white,
                       border: InputBorder.none,
                     ),
-                    onSubmitted: (text) {
-                      context.read<ChatCubitMain>().insert(text);
+                    onSubmitted: (messages) {
+                      String message = sendMessage.text;
+                      if (message != '') {
+                        context.read<ChatCubitMain>().insert(message);
+                        sendMessage.clear();
+                      }
                     },
                   ),
                 ),
@@ -62,7 +67,12 @@ class _TextfieldChatState extends State<TextfieldChat> {
               const SizedBox(width: 10),
               IconButton(
                 onPressed: () {
-                  context.read<ChatCubitMain>().insert(controller.text);
+                  String message = sendMessage.text;
+                  if (message != '') {
+                    context.read<ChatCubitMain>().insert(message);
+                    sendMessage.clear();
+                  }
+                  //context.read<ChatCubitMain>().insert(sendMessage.text);
                 },
                 icon: const Icon(Icons.arrow_upward),
                 color: Palette.black,

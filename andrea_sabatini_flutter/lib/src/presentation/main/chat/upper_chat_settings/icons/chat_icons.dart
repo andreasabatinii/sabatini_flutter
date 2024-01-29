@@ -1,7 +1,8 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/icons/icon_component.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatIcons extends StatelessWidget {
@@ -9,6 +10,7 @@ class ChatIcons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return LayoutBuilder(
       builder: (context, constraints) {
         // print(constraints.maxWidth);
@@ -36,14 +38,15 @@ class ChatIcons extends StatelessWidget {
                   iconpath: 'assets/icons/trash-restore-alt.png'),
               const SizedBox(width: Grid.medium),
               Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Grid.padsmall, vertical: Grid.padsmall),
                   decoration: BoxDecoration(
-                    color: Palette.black,
-                    borderRadius: BorderRadius.circular(6),
+                    color: theme.blackBoxColor,
+                    borderRadius: br6,
                   ),
-                  child:
-                      const SmallParagraph('Share', textcolor: Palette.white))
+                  child: const DetailsText(
+                    'Share',
+                  ))
             ],
           );
         }

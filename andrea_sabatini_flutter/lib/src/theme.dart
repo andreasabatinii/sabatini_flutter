@@ -17,6 +17,7 @@ class Palette {
   static const red = Color(0xFFFC365E);
   static const pink = Color(0xFFFF72F1);
   static const yellow = Color(0xFFFEA82F);
+  static const graybg = Color(0xFF5F5F5F);
 
   static const blackgradient = LinearGradient(
     colors: [Palette.black, Palette.gray],
@@ -63,7 +64,7 @@ const smallParagraphTextStyle = TextStyle(
 );
 const detailTextStyle = TextStyle(
   fontSize: 10,
-  fontWeight: FontWeight.w300,
+  fontWeight: FontWeight.w500,
   letterSpacing: 0,
   height: null,
 );
@@ -75,6 +76,7 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.bgPrimary,
     //usato per il BG del contenitore della Chat
     required this.bgSecondary,
+    required this.bgTertiary,
     //usato per il bottone CTA Upgrade to pro ed altri "hover" su bottoni"
     required this.buttonColor,
     //usato per il nome della chat
@@ -90,10 +92,17 @@ class AppTheme extends ThemeExtension<AppTheme> {
     required this.smallParagraphTextStyle,
     //usato per elementi di testo molto piccoli, per i dettagli
     required this.detailTextStyle,
+    required this.borderColor,
+    required this.blackBoxColor,
+    required this.whiteBoxColor,
   });
 
   final Color bgPrimary;
   final Color bgSecondary;
+  final Color bgTertiary;
+  final Color borderColor;
+  final Color blackBoxColor;
+  final Color whiteBoxColor;
 
   final Gradient buttonColor;
 
@@ -109,6 +118,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
   AppTheme copyWith({
     Color? bgPrimary,
     Color? bgSecondary,
+    Color? bgTertiary,
+    Color? borderColor,
+    Color? blackBoxColor,
+    Color? whiteBoxColor,
     Gradient? buttonColor,
     TextStyle? titleTextStyle,
     TextStyle? h1TextStyle,
@@ -121,6 +134,10 @@ class AppTheme extends ThemeExtension<AppTheme> {
       AppTheme(
         bgPrimary: bgPrimary ?? this.bgPrimary,
         bgSecondary: bgSecondary ?? this.bgSecondary,
+        bgTertiary: bgTertiary ?? this.bgTertiary,
+        borderColor: borderColor ?? this.borderColor,
+        blackBoxColor: blackBoxColor ?? this.blackBoxColor,
+        whiteBoxColor: whiteBoxColor ?? this.whiteBoxColor,
         buttonColor: buttonColor ?? this.buttonColor,
         titlesTextStyle: titleTextStyle ?? titlesTextStyle,
         h1TextStyle: h1TextStyle ?? this.h1TextStyle,
@@ -142,6 +159,13 @@ class AppTheme extends ThemeExtension<AppTheme> {
       bgPrimary: Color.lerp(bgPrimary, other.bgPrimary, t) ?? Colors.white,
       bgSecondary:
           Color.lerp(bgSecondary, other.bgSecondary, t) ?? Palette.lightgray,
+      bgTertiary: Color.lerp(bgTertiary, other.bgTertiary, t) ?? Palette.black,
+      borderColor:
+          Color.lerp(borderColor, other.borderColor, t) ?? Palette.black,
+      blackBoxColor:
+          Color.lerp(blackBoxColor, other.blackBoxColor, t) ?? Palette.black,
+      whiteBoxColor:
+          Color.lerp(whiteBoxColor, other.whiteBoxColor, t) ?? Palette.white,
       buttonColor: Gradient.lerp(buttonColor, other.buttonColor, t) ??
           Palette.greengradient,
       h1TextStyle: TextStyle.lerp(h1TextStyle, other.h1TextStyle, t) ??
@@ -167,11 +191,15 @@ class AppTheme extends ThemeExtension<AppTheme> {
 }
 
 final lightTheme = AppTheme(
-  bgPrimary: const Color(0xFFf8f8f8),
-  bgSecondary: const Color(0xFFf1f1f1),
+  bgPrimary: Palette.white,
+  bgSecondary: Palette.lightgray,
+  bgTertiary: Palette.black,
+  borderColor: Palette.black,
   buttonColor: Palette.greengradient,
+  blackBoxColor: Palette.black,
+  whiteBoxColor: Palette.lightgray,
   titlesTextStyle: titlesTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.black,
   ),
   h1TextStyle: h1TextStyle.copyWith(
     color: Palette.black,
@@ -180,7 +208,7 @@ final lightTheme = AppTheme(
     color: const Color(0xFF020202),
   ),
   boldparagraphTextStyle: boldparagraphTextStyle.copyWith(
-    color: Palette.black,
+    color: Palette.white,
   ),
   paragraphTextStyle: paragraphTextStyle.copyWith(
     color: const Color(0xFF020202),
@@ -189,33 +217,38 @@ final lightTheme = AppTheme(
     color: const Color(0xFF020202),
   ),
   detailTextStyle: detailTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
 );
 
 final darkTheme = AppTheme(
-  bgPrimary: const Color(0xFFf8f8f8),
-  bgSecondary: const Color(0xFFf1f1f1),
+  bgPrimary: Palette.graybg,
+  bgSecondary: Palette.black,
+  bgTertiary: Palette.white,
+  borderColor: Palette.white,
+  blackBoxColor: Palette.white,
+  whiteBoxColor: Palette.black,
   buttonColor: Palette.greengradient,
   titlesTextStyle: titlesTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
+  //Supermind
   h1TextStyle: h1TextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
   h3TextStyle: h3TextStyle.copyWith(
     color: const Color(0xFF020202),
   ),
   boldparagraphTextStyle: boldparagraphTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.black,
   ),
   paragraphTextStyle: paragraphTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
   smallParagraphTextStyle: smallParagraphTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.white,
   ),
   detailTextStyle: detailTextStyle.copyWith(
-    color: const Color(0xFF020202),
+    color: Palette.black,
   ),
 );

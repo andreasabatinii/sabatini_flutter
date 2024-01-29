@@ -1,10 +1,10 @@
-import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/blocs/chat_cubit_main.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/chat_section_main.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/chat_sidebar.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/responsive/responsive_sidebar.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/responsive/responsive_sidebar_content.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +13,7 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return BlocProvider(
       create: (context) => ChatCubitMain()..loadMessages(),
       child: Scaffold(
@@ -26,7 +27,7 @@ class MainPage extends StatelessWidget {
           if (constraints.maxWidth < 800) {
             return Container(
               //padding: const EdgeInsets.all(15),
-              color: Palette.black,
+              color: theme.bgTertiary,
               child: Flex(
                 direction: direction,
                 children: const [
@@ -41,13 +42,13 @@ class MainPage extends StatelessWidget {
             );
           } else {
             return Container(
-              color: Palette.black,
+              color: theme.bgTertiary,
               child: Row(
                 children: [
                   Container(
                       width: 300,
                       padding: const EdgeInsets.all(Grid.paddingdesktop),
-                      color: Palette.white,
+                      color: theme.bgPrimary,
                       child: const ChatSidebar()),
                   const SizedBox(
                     width: 1,

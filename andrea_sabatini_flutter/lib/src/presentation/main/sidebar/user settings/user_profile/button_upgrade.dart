@@ -20,6 +20,9 @@ class ButtonUpgrade extends StatelessWidget {
               color: Palette.white,
               width: 1,
             )),
-        child: const BoldParagraph('Upgrade to Pro'));
+        child: const Paragraph(
+          'Upgrade to Pro',
+          textcolor: Palette.black,
+        ));
   }
 }

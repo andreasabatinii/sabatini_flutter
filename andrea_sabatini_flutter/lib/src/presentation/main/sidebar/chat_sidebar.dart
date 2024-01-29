@@ -2,9 +2,9 @@ import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/folders%20
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/options%20components/chat_options.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/sidebar/user%20settings/user_settings.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
-import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatSidebar extends StatelessWidget {
@@ -12,6 +12,7 @@ class ChatSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Column(
       children: [
         Row(
@@ -33,7 +34,10 @@ class ChatSidebar extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 14),
-            const H1Title('Supermind', textcolor: Palette.black)
+            const H1Title(
+              'Supermind',
+              //textcolo: theme.h1TextStyle,
+            )
           ],
         ),
 
@@ -43,7 +47,7 @@ class ChatSidebar extends StatelessWidget {
         Container(
           height: 1,
           width: double.infinity,
-          color: Palette.black15,
+          color: theme.blackBoxColor,
         ),
         const SizedBox(
           height: Grid.medium,
@@ -55,7 +59,7 @@ class ChatSidebar extends StatelessWidget {
         Container(
           height: 1,
           width: double.infinity,
-          color: Palette.black15,
+          color: theme.blackBoxColor,
         ),
         const SizedBox(height: Grid.medium),
         const ChatFolder(),

@@ -1,5 +1,6 @@
 import 'package:andrea_sabatini_flutter/src/data/models/message.dart';
-import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+//import 'package:andrea_sabatini_flutter/src/presentation/home/blocs/chat_cubit.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/blocs/chat_cubit_main.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_chat_component.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/user_chat_component.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,7 @@ class AiUserChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ChatCubitMain()..loadMessages(),
-      child: const _ChatSection(),
-    );
+    return const _ChatSection();
   }
 }
 
@@ -25,6 +23,7 @@ class _ChatSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubitMain, ChatState>(
       builder: (context, state) {
+        print(state);
         if (state is ChatLoading) {
           return const Center(
             child: CircularProgressIndicator(),
@@ -36,19 +35,18 @@ class _ChatSection extends StatelessWidget {
           );
         }
         if (state is ChatLoaded) {
-          return Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: ListView(
-                //reverse: true,
-                children: [
-                  for (final message in state.messages)
-                    message is MessageAi
-                        ? AiChatComponent(response: message.content)
-                        : UserChatComponent(inputtext: message.content)
-                ],
-              ),
-            ),
+          print('messages: ${state.messages}');
+          return ListView(
+            shrinkWrap: true,
+            //shrinkWrap: true,
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            //reverse: true,
+            children: [
+              for (final message in state.messages)
+                message is MessageAi
+                    ? AiChatComponent(response: message.content)
+                    : UserChatComponent(inputtext: message.content)
+            ],
           );
         }
         return const SizedBox();

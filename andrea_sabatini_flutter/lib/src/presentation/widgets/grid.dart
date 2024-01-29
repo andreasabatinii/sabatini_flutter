@@ -23,3 +23,8 @@ class IconHeight {
   static const small = 18.0;
   static const medium = 20.0;
 }
+
+class LogoHeight {
+  static const small = 20.0;
+  static const medium = 30.0;
+}
