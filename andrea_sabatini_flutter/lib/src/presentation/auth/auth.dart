@@ -3,24 +3,33 @@ import 'package:andrea_sabatini_flutter/src/presentation/auth/widgets/hero_secti
 import 'package:flutter/material.dart';
 
 class AuthView extends StatelessWidget {
-  const AuthView({super.key});
+  const AuthView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: LayoutBuilder(builder: (context, constraints) {
-        final isDesktop = constraints.maxWidth > 1000;
-        // print('width: ${constraints.maxWidth}');
-        // print('isDesktop: $isDesktop');
-        return Flex(
-          direction: isDesktop ? Axis.horizontal : Axis.vertical,
-          children: const [
-            HeroSection(),
+        final isDesktop = constraints.maxWidth > 900;
 
-            // Sezione Bianca
-            FormSection()
-          ],
-        );
+        return isDesktop
+            ? const Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HeroSection(),
+                  // Sezione Bianca
+                  FormSection(),
+                ],
+              )
+            : const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  //HeroSection(),
+                  // Sezione Bianca
+                  FormSection(),
+                ],
+              );
       }),
     );
   }

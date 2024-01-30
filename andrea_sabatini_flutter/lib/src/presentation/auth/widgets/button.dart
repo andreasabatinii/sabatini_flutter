@@ -1,23 +1,42 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class Button extends StatelessWidget {
-  const Button({super.key, required this.label});
+class ButtonField extends StatelessWidget {
+  const ButtonField(
+      {super.key, required this.requiredinput, required this.inputenter});
 
-  final String label;
+  final String requiredinput;
+  final String inputenter;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48,
-      decoration: BoxDecoration(
-          color: const Color(0xFFF15025),
-          borderRadius: BorderRadius.circular(6)),
-      child: Center(
-        child: Text(
-          label,
-          style: GoogleFonts.sora(color: const Color(0xFFFFFFFF), fontSize: 16),
-        ),
+      constraints: const BoxConstraints(
+        maxWidth: 400,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Paragraph(requiredinput),
+          const SizedBox(
+            height: Grid.small,
+          ),
+          Container(
+              margin: const EdgeInsets.only(bottom: Grid.medium),
+              width: double.infinity,
+              padding: const EdgeInsets.all(Grid.padmedium),
+              decoration: BoxDecoration(
+                  color: Palette.lightgray,
+                  borderRadius: br6,
+                  border: Border.all(color: Palette.black, width: 1)),
+              child: SmallParagraph(
+                inputenter,
+                textcolor: Palette.gray,
+              )),
+        ],
       ),
     );
   }

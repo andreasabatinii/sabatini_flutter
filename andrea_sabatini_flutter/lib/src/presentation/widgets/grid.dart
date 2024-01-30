@@ -5,6 +5,7 @@ class Grid {
   static const medium = 16.0;
 
   //padding
+  static const paddingauthbig = 60.0;
   static const paddingdesktop = 20.0;
   static const padxssmall = 4.0;
   static const padsmall = 8.0;

@@ -23,30 +23,24 @@ class _ChatSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubitMain, ChatState>(
       builder: (context, state) {
-        print(state);
-        if (state is ChatLoading) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        }
         if (state is ChatError) {
           return Center(
             child: Text(state.error),
           );
         }
         if (state is ChatLoaded) {
-          print('messages: ${state.messages}');
-          return ListView(
-            shrinkWrap: true,
-            //shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            //reverse: true,
-            children: [
-              for (final message in state.messages)
-                message is MessageAi
+          //print('messages: ${state.messages}');
+          return Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              itemCount: state.messages.length,
+              itemBuilder: (context, index) {
+                final message = state.messages[index];
+                return message is MessageAi
                     ? AiChatComponent(response: message.content)
-                    : UserChatComponent(inputtext: message.content)
-            ],
+                    : UserChatComponent(inputtext: message.content);
+              },
+            ),
           );
         }
         return const SizedBox();
@@ -110,4 +104,19 @@ class AiUserChat extends StatelessWidget {
     );
   }
 }
+*/
+
+
+
+/*
+child: ListView.builder(
+  padding: const EdgeInsets.symmetric(vertical: 10),
+  itemCount: state.messages.length,
+  itemBuilder: (context, index) {
+    final message = state.messages[index];
+    return message is MessageAi
+        ? AiChatComponent(response: message.content)
+        : UserChatComponent(inputtext: message.content);
+  },
+),
 */

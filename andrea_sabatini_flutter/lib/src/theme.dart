@@ -38,7 +38,7 @@ class Palette {
 
 const h1TextStyle = TextStyle(
   fontSize: 36,
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.w600,
   height: null,
 );
 //definisco le variabili di testo

@@ -1,5 +1,5 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/ai_user_chat.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/chat_bottom.dart';
-import 'package:andrea_sabatini_flutter/src/presentation/main/chat/starter_chat.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/upper_chart.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
 import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
@@ -23,7 +23,9 @@ class ChatSection extends StatelessWidget {
             SizedBox(
               height: Grid.medium,
             ),
-            Expanded(child: StarterChat()),
+            //Expanded(child: StarterChat()),
+            Expanded(child: AiUserChat()),
+            //AiUserChat(),
             SizedBox(
               height: Grid.medium,
             ),

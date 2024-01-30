@@ -70,6 +70,7 @@ flutter:
     - assets/profile_pic.jpg
     - assets/profile_photo.jpg
     - assets/logo_supermind.jpeg
+    - assets/background_auth.jpg
     - assets/icons/
 
   # To add assets to your application, add an assets section, like this:

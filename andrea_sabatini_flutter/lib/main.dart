@@ -1,5 +1,5 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
-import 'package:andrea_sabatini_flutter/src/presentation/auth/auth.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/main/main_page.dart';
 import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -38,8 +38,8 @@ class MyApp extends StatelessWidget {
               title: 'Flutter Demo',
               theme: lightTheme,
               darkTheme: darkTheme,
-              //home: const MainPage());
-              home: const AuthView());
+              home: const MainPage());
+          //home: const AuthView());
         });
   }
 }
