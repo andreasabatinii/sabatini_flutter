@@ -42,6 +42,7 @@ class HeroSection extends StatelessWidget {
                 const WhiteParagraph(
                   'It is like ChatGPT but more friendly and easy going.\nIt is funny to chat with Supermind.',
                   textalignment: TextAlign.left,
+                  textcolor: Palette.white,
                 )
               ],
             ),

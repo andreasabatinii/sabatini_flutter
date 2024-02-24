@@ -25,7 +25,6 @@ class ChatSection extends StatelessWidget {
             ),
             //Expanded(child: StarterChat()),
             Expanded(child: AiUserChat()),
-            //AiUserChat(),
             SizedBox(
               height: Grid.medium,
             ),

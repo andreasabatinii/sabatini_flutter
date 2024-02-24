@@ -14,6 +14,7 @@ class FormSection extends StatelessWidget {
     return Expanded(
         child: Container(
       padding: const EdgeInsets.all(Grid.paddingauthbig),
+      color: Palette.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -37,7 +38,10 @@ class FormSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: Grid.small),
-              const H2Title('Supermind'),
+              const H2Title(
+                'Supermind',
+                textcolor: Palette.black,
+              ),
             ],
           ),
           IntrinsicHeight(
@@ -52,13 +56,17 @@ class FormSection extends StatelessWidget {
                   children: [
                     const Column(
                       children: [
-                        H3Title('Get Started!'),
+                        H2Title(
+                          'Get Started!',
+                          textcolor: Palette.black,
+                        ),
                         SizedBox(
                           height: Grid.small,
                         ),
                         Paragraph(
                           'Enter your email and password to access your account',
                           textalignment: TextAlign.center,
+                          textcolor: Palette.black,
                         )
                       ],
                     ),
@@ -72,7 +80,7 @@ class FormSection extends StatelessWidget {
                       child: Container(
                           width: double.infinity,
                           height: 1,
-                          color: Palette.black),
+                          color: Palette.gray),
                     ),
                     const SizedBox(
                       height: Grid.medium,
@@ -95,6 +103,7 @@ class FormSection extends StatelessWidget {
                       iconpath: 'assets/icons/sign-in-alt.png',
                       iconcolor: Palette.white,
                       gradient: Palette.graygradient,
+                      textcolor: Palette.white,
                     ),
                     const SizedBox(
                       height: 16,

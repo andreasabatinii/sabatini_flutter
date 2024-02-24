@@ -28,14 +28,18 @@ class ChatCubitMain extends Cubit<ChatState> {
     http
         .post(
       Uri.parse('https://api.openai.com/v1/chat/completions'),
-      headers: {"Content-Type": "application/json", "Authorization": ""},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization":
+            "Bearer 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"
+      },
       body: jsonEncode({
         "model": "gpt-3.5-turbo",
         "messages": [
           {
             "role": "system",
             "content":
-                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response. You only respond in serbian"
+                "You are a helpful assistant, that always responds in a funny but helpful way. You make some jokes at the end of your response."
           }, //definisco che tipo di bot è
           {"role": "user", "content": content}
         ]
