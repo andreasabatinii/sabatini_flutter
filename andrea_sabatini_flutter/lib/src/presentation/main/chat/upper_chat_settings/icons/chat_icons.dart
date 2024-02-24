@@ -1,45 +1,56 @@
+import 'package:andrea_sabatini_flutter/src/presentation/main/chat/upper_chat_settings/icons/icon_component.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ChatIcons extends StatelessWidget {
   const ChatIcons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(
-          Icons.star_outline,
-          color: Color(0xFF101010),
-          size: 22,
-        ),
-        const SizedBox(width: 25),
-        const Icon(
-          Icons.bookmark_outline,
-          color: Color(0xFF101010),
-          size: 20,
-        ),
-        const SizedBox(width: 25),
-        const Icon(
-          Icons.more_horiz,
-          color: Color(0xFF101010),
-          size: 20,
-        ),
-        const SizedBox(width: 25),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-          decoration: BoxDecoration(
-            color: const Color(0xFF101010),
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: Text('Share',
-              style: GoogleFonts.sora(
-                color: const Color(0xFFFFFFFF),
-                fontSize: 12,
-                fontWeight: FontWeight.w300,
-              )),
-        )
-      ],
+    final theme = getTheme(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // print(constraints.maxWidth);
+        double pageWidth = MediaQuery.of(context).size.width;
+
+        if (pageWidth <= 550) {
+          return const Row(
+            children: [
+              //SizedBox(width: Grid.medium),
+              IconComponent(iconpath: 'assets/icons/circle-star.png'),
+              SizedBox(width: Grid.medium),
+              IconComponent(iconpath: 'assets/icons/wishlist-star.png'),
+              SizedBox(width: Grid.medium),
+              IconComponent(iconpath: 'assets/icons/trash-restore-alt.png'),
+            ],
+          );
+        } else {
+          return Row(
+            children: [
+              const IconComponent(iconpath: 'assets/icons/circle-star.png'),
+              const SizedBox(width: Grid.medium),
+              const IconComponent(iconpath: 'assets/icons/wishlist-star.png'),
+              const SizedBox(width: Grid.medium),
+              const IconComponent(
+                  iconpath: 'assets/icons/trash-restore-alt.png'),
+              const SizedBox(width: Grid.medium),
+              Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Grid.padsmall, vertical: Grid.padsmall),
+                  decoration: BoxDecoration(
+                    color: theme.blackBoxColor,
+                    borderRadius: br6,
+                  ),
+                  child: const DetailsText(
+                    'Share',
+                  ))
+            ],
+          );
+        }
+      },
     );
   }
 }

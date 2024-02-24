@@ -1,29 +1,30 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ButtonUpgrade extends StatelessWidget {
   const ButtonUpgrade({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Container(
         width: double.infinity,
         alignment: Alignment.center,
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: Grid.padmedium),
         decoration: BoxDecoration(
-            color: const Color(0xFF20F585),
-            borderRadius: BorderRadius.circular(8),
+            gradient: theme.buttonColor,
+            borderRadius: br8,
             border: Border.all(
-              color: const Color(0xFFFFFFFF),
-              width: 2,
+              color: theme.borderColor,
+              width: 1,
             )),
-        child: Text(
+        child: const BoldParagraph(
           'Upgrade to Pro',
-          style: GoogleFonts.sora(
-            color: const Color(0xFF101010),
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-          ),
+          textcolor: Palette.black,
         ));
   }
 }

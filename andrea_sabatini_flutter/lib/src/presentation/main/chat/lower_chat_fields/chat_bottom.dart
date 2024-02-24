@@ -1,24 +1,20 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/lower_chat_fields/textfield_chat.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class BottomChatColumn extends StatelessWidget {
   const BottomChatColumn({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
-        //const ChatRecommended(),
-        const SizedBox(height: 10),
-        const TextfieldChat(),
-        const SizedBox(height: 10),
-        Text('SuperMind may make some mistakes. Nobody is perfect!',
-            style: GoogleFonts.sora(
-              color: const Color(0xFF101010),
-              fontSize: 12,
-              fontWeight: FontWeight.w300,
-            ))
+        SizedBox(height: Grid.small),
+        TextfieldChat(),
+        SizedBox(height: Grid.small),
+        SmallParagraph('Supermind may make some mistakes. Nobody is perfect!'),
+        // Altri widget...
       ],
     );
   }

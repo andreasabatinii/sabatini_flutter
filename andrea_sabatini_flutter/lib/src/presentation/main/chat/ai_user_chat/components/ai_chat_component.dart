@@ -1,6 +1,10 @@
 import 'package:andrea_sabatini_flutter/src/presentation/main/chat/ai_user_chat/components/ai_buttons_components.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
+import 'package:andrea_sabatini_flutter/src/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AiChatComponent extends StatelessWidget {
   const AiChatComponent({super.key, required this.response});
@@ -9,6 +13,7 @@ class AiChatComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 25),
       child: Row(
@@ -16,11 +21,22 @@ class AiChatComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 30,
-            height: 30,
+            width: LogoHeight.medium,
+            height: LogoHeight.medium,
             decoration: BoxDecoration(
-              color: const Color(0xFFFEA82F),
-              borderRadius: BorderRadius.circular(8),
+              //color: const Color(0xFFFEA82F),
+              borderRadius: br6,
+              border: Border.all(
+                color: theme.borderColor,
+                width: 1.0,
+              ),
+            ),
+            child: ClipRRect(
+              borderRadius: br6,
+              child: Image.asset(
+                'assets/logo_supermind.jpeg',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(width: 10),
@@ -31,32 +47,42 @@ class AiChatComponent extends StatelessWidget {
               children: [
                 Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 16),
+                        horizontal: Grid.padmedium, vertical: Grid.padmedium),
                     decoration: BoxDecoration(
-                      //color: const Color(0xFF101010),
-                      borderRadius: BorderRadius.circular(6),
+                      color: theme.whiteBoxColor,
+                      borderRadius: br6,
                       border: Border.all(
-                        color: const Color(0xFF101010),
+                        color: theme.borderColor,
                         width: 1,
                       ),
                     ),
                     child: Row(
                       children: [
-                        Expanded(
-                          child: Text(response,
-                              style: GoogleFonts.sora(
-                                color: const Color(0xFF101010),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                              )),
-                        ),
+                        Expanded(child: Paragraph(response)),
                       ],
                     )),
-                const SizedBox(height: 8),
-                const Row(
+                const SizedBox(height: Grid.small),
+                Row(
                   children: [
-                    AiButtons(buttonaction: 'Copy'),
-                    AiButtons(buttonaction: 'Regenerate response')
+                    const AiButtons(buttonaction: 'Copy'),
+                    const AiButtons(buttonaction: 'Regenerate response'),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: Grid.padsmall, vertical: Grid.padsmall),
+                      decoration: BoxDecoration(
+                        color: Palette.black,
+                        borderRadius: br4,
+                      ),
+                      child: const Icon(
+                        Icons.favorite_outline,
+                        color: Color(0xFFFFFFFF),
+                        size: 14,
+                        weight: 100,
+                        grade: -25,
+                        opticalSize: 20.0,
+                        fill: 0,
+                      ),
+                    ),
                   ],
                 )
               ],

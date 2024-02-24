@@ -1,3 +1,7 @@
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/border_radius.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/get_theme.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/grid.dart';
+import 'package:andrea_sabatini_flutter/src/presentation/widgets/typography.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,30 +18,28 @@ class FolderItemsComponents extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = getTheme(context);
     return Column(
       children: [
         Container(
           padding: const EdgeInsets.only(
-            left: 16,
-            right: 8,
-            top: 8,
-            bottom: 8,
+            left: Grid.padmedium,
+            right: Grid.small,
+            top: Grid.small,
+            bottom: Grid.small,
           ),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(6),
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xFF212121), Color(0xFF3E3E3E)],
+            borderRadius: br8, color: theme.whiteBoxColor,
+            boxShadow: [
+              BoxShadow(
+                color: theme.borderColor, // Colore dell'ombra
+                spreadRadius: 0, // Raggio di diffusione
+                blurRadius: 0, // Raggio di sfocatura
+                offset: const Offset(0, 1), // Offset (spostamento) dell'ombra
               ),
-              boxShadow: const [
-                BoxShadow(
-                  color: Color(0xFFFFFFFF), // Colore dell'ombra
-                  spreadRadius: 0, // Raggio di diffusione
-                  blurRadius: 0, // Raggio di sfocatura
-                  offset: Offset(-1, 0), // Offset (spostamento) dell'ombra
-                ),
-              ]),
+            ],
+            //boxShadow: const [ BoxShadow( color: Color(0xFFFFFFFF), spreadRadius: 0, blurRadius: 0, offset: Offset(-1, 0),),]
+          ),
           child: Row(
             children: [
               Row(
@@ -50,13 +52,8 @@ class FolderItemsComponents extends StatelessWidget {
                       borderRadius: BorderRadius.circular(2),
                     ),
                   ),
-                  const SizedBox(width: 16),
-                  Text(foldername,
-                      style: GoogleFonts.sora(
-                        color: const Color(0xFFFFFFFF),
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                      ))
+                  const SizedBox(width: Grid.medium),
+                  Paragraph(foldername)
                 ],
               ),
               const Spacer(),
